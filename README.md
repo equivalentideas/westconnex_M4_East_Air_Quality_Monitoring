@@ -20,3 +20,7 @@ Here are examples of the information published:
 
 ![Screenshop of the St Lukes Park AQM page](2018-03-13_st_lukes_park_page.png)
 
+## Dependencies
+
+* SQLite 3
+* PhantomJS
