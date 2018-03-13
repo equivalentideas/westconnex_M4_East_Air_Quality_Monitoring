@@ -1,25 +1,43 @@
-# This is a template for a Ruby scraper on morph.io (https://morph.io)
-# including some code snippets below that you should find helpful
+require 'scraperwiki'
+require 'capybara/poltergeist'
 
-# require 'scraperwiki'
-# require 'mechanize'
-#
-# agent = Mechanize.new
-#
-# # Read in a page
-# page = agent.get("http://foo.com")
-#
-# # Find somehing on the page using css selectors
-# p page.at('div.content')
-#
-# # Write out to the sqlite database using scraperwiki library
-# ScraperWiki.save_sqlite(["name"], {"name" => "susan", "occupation" => "software developer"})
-#
-# # An arbitrary query against the database
-# ScraperWiki.select("* from data where 'name'='peter'")
+def format_location_name_for_table(table_elm)
+  text = table_elm.find('thead').text
+  name = text.split(' ')[0...-1].collect(&:capitalize).join(' ')
+  name + ' AQM'
+end
 
-# You don't have to do things with the Mechanize or ScraperWiki libraries.
-# You can use whatever gems you want: https://morph.io/documentation/ruby
-# All that matters is that your final data is written to an SQLite database
-# called "data.sqlite" in the current working directory which has at least a table
-# called "data".
+def tableize(string)
+  string.downcase.gsub('- ', '').gsub(/(\.| )/,'_')
+end
+
+capybara = Capybara::Session.new(:poltergeist)
+
+capybara.visit('http://airodis.ecotech.com.au/westconnex/')
+
+records = []
+
+capybara.all('#sidebar table').each do |table|
+  records << {
+    'location_name' => format_location_name_for_table(table)
+  }
+end
+
+records.each do |record|
+  capybara.find('header').click_link(record['location_name'])
+
+  record.merge!(
+    'scraped_at' => Time.now.to_s,
+    'latest_reading_recorded_at' => capybara.find('table thead').text.split('at: ').last
+  )
+
+  key_rows = capybara.all('tbody th').map {|th| tableize(th.text) }
+  value_rows = capybara.all('tbody td').map(&:text)
+
+  record.merge!(key_rows.zip(value_rows).to_h)
+
+  ScraperWiki.save_sqlite(
+    ['scraped_at', 'location_name'],
+    record
+  )
+end

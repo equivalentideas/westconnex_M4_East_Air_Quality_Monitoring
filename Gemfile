@@ -6,6 +6,7 @@ source "https://rubygems.org"
 
 ruby "2.4.2"
 
-gem "scraperwiki", git: "https://github.com/openaustralia/scraperwiki-ruby.git", branch: "morph_defaults"
 gem "mechanize"
+gem "poltergeist"
 gem "pry"
+gem "scraperwiki", git: "https://github.com/openaustralia/scraperwiki-ruby.git", branch: "morph_defaults"
