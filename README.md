@@ -25,6 +25,26 @@ Here are examples of the information published:
 * SQLite 3
 * PhantomJS
 
+## Records
+
+For each record we collect:
+
+* **location_name**, the name of the air quality monitoring station, e.g.  'Haberfield Public School AQM'
+* **scraped_at**, the date and time the data was collected by us
+* **latest_reading_recorded_at**, the time the website says the reading was
+  recorded, in the format provided
+* **pm2_5_concentration**, Particulate less that 2.5 microns in equivalent aerodynamic diameter
+* **pm10_concentration**, Particulate less that 10 microns in equivalent aerodynamic diameter
+* **co_concentration**, Carbon Monoxide reading
+* **no2_concentration**, Nitrgen Dioxide reading
+* **diferential_temperature_lower**, "Differential Temperature - Lower" reading
+* **diferential_temperature_upper**, "Differential Temperature - Upper" reading
+* **wind_speed**, Wind Speed reading
+* **wind_direction**, Wind Direction reading
+* **sigma**, Sigma (Wind Direction stability) reading
+
+See the information provided below for more information about what's recorded.
+
 ## Information provided
 
 [The Information page](http://airodis.ecotech.com.au/westconnex/index.html?site=6&station=0)
