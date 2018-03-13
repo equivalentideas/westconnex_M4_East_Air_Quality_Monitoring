@@ -24,3 +24,50 @@ Here are examples of the information published:
 
 * SQLite 3
 * PhantomJS
+
+## Information provided
+
+[The Information page](http://airodis.ecotech.com.au/westconnex/index.html?site=6&station=0)
+on the WestConnex M4 East - Air Quality Monitoring includes the following text,
+retyped here because it is an image of text there, rendering it inaccessible to screen readers etc. :
+
+```
+Definitions & Abbreviations
+
+PM10 Particulate less that 10 microns in equivalent aerodynamic diameter
+PM2.5 Particulate less that 2.5 microns in equivalent aerodynamic diameter
+N02 Nitrogen dioxide
+CO Carbon monoxide
+WD Vector Wind Direction
+WS Vector Wind Speed
+Sigma Wind Direction stability
+AT Ambient Temperature
+
+Units
+
+µg/m³ Micrograms per cubic meter at standard temperature and pressure (0ºC and
+101.3 kPa)
+ppm Parts per million
+º Degrees (True North)
+m/s Metres per second
+ªC Degrees Celsius
+
+Traffic light icons on Site Map page side bar
+
+The green, orange and red circles indicate that data was successfully loaded to
+the page at the last attempt.
+This is not an indication of the pollution index or instrument status
+
+Instantaneous data on the side bar of individual station summary tabs
+
+These are real-time values showing the latest available five-minute result for
+each parameter. Graphs show data averaged over periods which coincide with the
+relevant air quality goals. As a result, these values may differ.
+
+Disclaimer
+
+The data use in the compilation of this website has undergone only preliminary
+quality assurance checks. This data may require modification during the final
+stages of validation as a result of calibration changes, power failures,
+instrument failures etc
+```
