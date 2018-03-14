@@ -37,8 +37,8 @@ For each record we collect:
 * **pm10_concentration**, Particulate less that 10 microns in equivalent aerodynamic diameter
 * **co_concentration**, Carbon Monoxide reading
 * **no2_concentration**, Nitrgen Dioxide reading
-* **diferential_temperature_lower**, "Differential Temperature - Lower" reading
-* **diferential_temperature_upper**, "Differential Temperature - Upper" reading
+* **differential_temperature_lower**, "Differential Temperature - Lower" reading
+* **differential_temperature_upper**, "Differential Temperature - Upper" reading
 * **wind_speed**, Wind Speed reading
 * **wind_direction**, Wind Direction reading
 * **sigma**, Sigma (Wind Direction stability) reading
