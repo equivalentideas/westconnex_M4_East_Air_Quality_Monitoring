@@ -96,19 +96,43 @@ instrument failures etc
 
 ### Database setup
 
-You'll need to create your own strong for `$password`.
+Replace `$password` with your own strong database password.
 
 ```
 createdb westconnex_m4east_aqm_development
 psql westconnex_m4east_aqm_development
-CREATE ROLE westconnex_m4east_aqm;
-ALTER ROLE westconnex_m4east_aqm WITH LOGIN PASSWORD '$password' NOSUPERUSER NOCREATEDB NOCREATEROLE;
-CREATE DATABASE westconnex_m4east_aqm_development OWNER westconnex_m4east_aqm;
-REVOKE ALL ON DATABASE westconnex_m4east_aqm_development FROM PUBLIC;
-GRANT ALL ON DATABASE westconnex_m4east_aqm_development TO westconnex_m4east_aqm;
+> CREATE ROLE westconnex_m4east_aqm;
+> ALTER ROLE westconnex_m4east_aqm WITH LOGIN PASSWORD '$password' NOSUPERUSER NOCREATEDB NOCREATEROLE;
+> CREATE DATABASE westconnex_m4east_aqm_development OWNER westconnex_m4east_aqm;
+> REVOKE ALL ON DATABASE westconnex_m4east_aqm_development FROM PUBLIC;
+> GRANT ALL ON DATABASE westconnex_m4east_aqm_development TO westconnex_m4east_aqm;
+> \q
 ```
 
 When running the scrapers, add the environment varaible
 DEVELOPMENT_DATABASE_PASSWORD with the same value as `$password` above, to use
-the password when running the scraper.
+the password when running the scraper. Create a file `.env` and add the
+variable:
 
+```
+# .env
+
+DEVELOPMENT_DATABASE_PASSWORD=$password
+```
+
+### Running locally
+
+```
+bundle exec dotenv ruby scraper.rb
+```
+
+### Running in production
+
+In production, run the script with the environment variables
+`SCRIPT_ENV=production`.
+
+```
+SCRIPT_ENV=production be ruby scraper.rb
+```
+
+Heroku injects it's own `ENV['DATABASE_URL']`.
