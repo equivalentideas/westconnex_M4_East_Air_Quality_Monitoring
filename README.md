@@ -99,13 +99,13 @@ instrument failures etc
 You'll need to create your own strong for `$password`.
 
 ```
-createdb westconnex_m4east_aqm
-psql westconnex_m4east_aqm
+createdb westconnex_m4east_aqm_development
+psql westconnex_m4east_aqm_development
 CREATE ROLE westconnex_m4east_aqm;
 ALTER ROLE westconnex_m4east_aqm WITH LOGIN PASSWORD '$password' NOSUPERUSER NOCREATEDB NOCREATEROLE;
-CREATE DATABASE westconnex_m4east_aqm OWNER westconnex_m4east_aqm;
-REVOKE ALL ON DATABASE westconnex_m4east_aqm FROM PUBLIC;
-GRANT ALL ON DATABASE westconnex_m4east_aqm TO westconnex_m4east_aqm;
+CREATE DATABASE westconnex_m4east_aqm_development OWNER westconnex_m4east_aqm;
+REVOKE ALL ON DATABASE westconnex_m4east_aqm_development FROM PUBLIC;
+GRANT ALL ON DATABASE westconnex_m4east_aqm_development TO westconnex_m4east_aqm;
 ```
 
 When running the scrapers, add the environment varaible
