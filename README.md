@@ -20,11 +20,6 @@ Here are examples of the information published:
 
 ![Screenshop of the St Lukes Park AQM page](2018-03-13_st_lukes_park_page.png)
 
-## Dependencies
-
-* SQLite 3
-* PhantomJS
-
 ## Records
 
 For each record we collect:
@@ -91,3 +86,29 @@ quality assurance checks. This data may require modification during the final
 stages of validation as a result of calibration changes, power failures,
 instrument failures etc
 ```
+
+## Setup
+
+### Dependencies
+
+* PostgreSQL
+* PhantomJS
+
+### Database setup
+
+You'll need to create your own strong for `$password`.
+
+```
+createdb westconnex_m4east_aqm
+psql westconnex_m4east_aqm
+CREATE ROLE westconnex_m4east_aqm;
+ALTER ROLE westconnex_m4east_aqm WITH LOGIN PASSWORD '$password' NOSUPERUSER NOCREATEDB NOCREATEROLE;
+CREATE DATABASE westconnex_m4east_aqm OWNER westconnex_m4east_aqm;
+REVOKE ALL ON DATABASE westconnex_m4east_aqm FROM PUBLIC;
+GRANT ALL ON DATABASE westconnex_m4east_aqm TO westconnex_m4east_aqm;
+```
+
+When running the scrapers, add the environment varaible
+DEVELOPMENT_DATABASE_PASSWORD with the same value as `$password` above, to use
+the password when running the scraper.
+
