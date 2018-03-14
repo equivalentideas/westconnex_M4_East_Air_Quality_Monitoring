@@ -7,6 +7,10 @@ source "https://rubygems.org"
 ruby "2.5.0"
 
 gem "activerecord"
-gem "pg"
 gem "poltergeist"
 gem "pry"
+
+group :development do
+  gem "dotenv"
+  gem "pry"
+end
