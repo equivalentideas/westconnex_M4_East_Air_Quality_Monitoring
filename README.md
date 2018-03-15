@@ -126,6 +126,14 @@ DEVELOPMENT_DATABASE_PASSWORD=$password
 bundle exec dotenv ruby scraper.rb
 ```
 
+## Production Setup
+
+Add Heroku PhantomJS buildpack:
+
+```
+heroku buildpacks:add --index 1 https://github.com/stomita/heroku-buildpack-phantomjs --app $heroku_app_name
+```
+
 ### Running in production
 
 In production, run the script with the environment variables
@@ -137,10 +145,10 @@ SCRIPT_ENV=production be ruby scraper.rb
 
 Heroku injects it's own `ENV['DATABASE_URL']`.
 
-## Production Setup
-
-Add Heroku PhantomJS buildpack:
+### Access the production data
 
 ```
-heroku buildpacks:add --index 1 https://github.com/stomita/heroku-buildpack-phantomjs --app $heroku_app_name
+heroku pg:psql --app $heroku_app_name
+
+> SELECT * FROM aqm_records;
 ```
