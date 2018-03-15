@@ -136,3 +136,11 @@ SCRIPT_ENV=production be ruby scraper.rb
 ```
 
 Heroku injects it's own `ENV['DATABASE_URL']`.
+
+## Production Setup
+
+Add Heroku PhantomJS buildpack:
+
+```
+heroku buildpacks:add --index 1 https://github.com/stomita/heroku-buildpack-phantomjs --app $heroku_app_name
+```
