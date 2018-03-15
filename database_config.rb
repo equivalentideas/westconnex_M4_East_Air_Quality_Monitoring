@@ -1,19 +1,23 @@
+DEV_DATABASE_CONFIG = {
+  adapter: 'postgresql',
+  host: 'localhost',
+  username: 'westconnex_m4east_aqm',
+  password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
+  database: 'westconnex_m4east_aqm_development'
+}.freeze
+
 def environment
   ENV['SCRIPT_ENV'] == 'production' ?  :production : :development
 end
 
-DATABASE_SETTINGS = {
-  development: {
-    host: 'localhost',
-    username: 'westconnex_m4east_aqm',
-    password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
-    database: 'westconnex_m4east_aqm_development'
-  },
-  production: {
-    url: ENV['DATABASE_URL']
-  }
-}.freeze
+def production_db_config
+  ActiveRecord::ConnectionAdapters::ConnectionSpecification::ConnectionUrlResolver.new(
+    ENV['DATABASE_URL']
+  ).to_hash
+end
 
-ActiveRecord::Base.establish_connection(
-  { adapter: 'postgresql' }.merge(DATABASE_SETTINGS[environment])
-)
+def database_config
+  environment == :production ? production_db_config : DEV_DATABASE_CONFIG
+end
+
+ActiveRecord::Base.establish_connection(database_config)
