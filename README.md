@@ -152,3 +152,11 @@ heroku pg:psql --app $heroku_app_name
 
 > SELECT * FROM aqm_records;
 ```
+
+### View the scheduler logs
+
+You can view the logs from the [Heroku scheduler](https://devcenter.heroku.com/articles/scheduler#inspecting-output) with:
+
+```
+heroku logs --app $heroku_app_name --ps scheduler
+```
