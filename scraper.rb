@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'capybara/poltergeist'
 require 'active_record'
 require_relative 'database_config.rb'
