@@ -13,6 +13,5 @@ gem "pry"
 
 group :development do
   gem "sqlite3"
-  gem "dotenv"
   gem "pry"
 end
