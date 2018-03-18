@@ -46,6 +46,7 @@ GEM
     rack (2.0.4)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
+    rake (12.3.0)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -64,6 +65,7 @@ DEPENDENCIES
   pg
   poltergeist
   pry
+  rake
 
 RUBY VERSION
    ruby 2.5.0p0
