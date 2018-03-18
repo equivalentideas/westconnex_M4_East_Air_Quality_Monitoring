@@ -7,6 +7,6 @@ gem "activerecord"
 gem "poltergeist"
 
 group :development do
-  gem "dotenv"
+  gem "sqlite3"
   gem "pry"
 end

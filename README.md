@@ -91,39 +91,18 @@ instrument failures etc
 
 ### Dependencies
 
-* PostgreSQL
 * PhantomJS
-
-### Database setup
-
-Replace `$password` with your own strong database password.
-
-```
-createdb westconnex_m4east_aqm_development
-psql westconnex_m4east_aqm_development
-> CREATE ROLE westconnex_m4east_aqm;
-> ALTER ROLE westconnex_m4east_aqm WITH LOGIN PASSWORD '$password' NOSUPERUSER NOCREATEDB NOCREATEROLE;
-> CREATE DATABASE westconnex_m4east_aqm_development OWNER westconnex_m4east_aqm;
-> REVOKE ALL ON DATABASE westconnex_m4east_aqm_development FROM PUBLIC;
-> GRANT ALL ON DATABASE westconnex_m4east_aqm_development TO westconnex_m4east_aqm;
-> \q
-```
-
-When running the scrapers, add the environment varaible
-DEVELOPMENT_DATABASE_PASSWORD with the same value as `$password` above, to use
-the password when running the scraper. Create a file `.env` and add the
-variable:
-
-```
-# .env
-
-DEVELOPMENT_DATABASE_PASSWORD=$password
-```
+* PostgreSQL in production
+* SQLite in development
 
 ### Running locally
 
 ```
-bundle exec dotenv ruby scraper.rb
+# Install gem dependencies
+bundle install
+
+# Run the scraper
+bundle exec ruby scraper.rb
 ```
 
 ## Production Setup

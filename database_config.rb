@@ -1,10 +1,4 @@
-DEV_DATABASE_CONFIG = {
-  adapter: 'postgresql',
-  host: 'localhost',
-  username: 'westconnex_m4east_aqm',
-  password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
-  database: 'westconnex_m4east_aqm_development'
-}.freeze
+DEV_DATABASE_CONFIG = {adapter: 'sqlite3', database: 'data.sqlite'}.freeze
 
 def environment
   ENV['SCRIPT_ENV'] == 'production' ?  :production : :development
