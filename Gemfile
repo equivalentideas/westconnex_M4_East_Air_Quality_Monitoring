@@ -6,6 +6,7 @@ gem "pg"
 gem "activerecord"
 gem "poltergeist"
 gem "rake"
+gem "sinatra"
 
 group :development do
   gem "dotenv"
