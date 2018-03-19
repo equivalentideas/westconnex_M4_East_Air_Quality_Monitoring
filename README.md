@@ -123,7 +123,7 @@ DEVELOPMENT_DATABASE_PASSWORD=$password
 ### Running locally
 
 ```
-bundle exec dotenv scraper.rb
+bundle exec dotenv ./scraper.rb
 ```
 
 ## Production Setup
