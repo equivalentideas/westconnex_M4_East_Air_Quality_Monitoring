@@ -7,7 +7,7 @@ DEV_DATABASE_CONFIG = {
 }.freeze
 
 def environment
-  ENV['SCRIPT_ENV'] == 'production' ?  :production : :development
+  ENV['RACK_ENV'] == 'production' ?  :production : :development
 end
 
 def production_db_config
