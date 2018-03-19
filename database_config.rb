@@ -1,3 +1,5 @@
+require 'active_record'
+
 DEV_DATABASE_CONFIG = {
   adapter: 'postgresql',
   host: 'localhost',
@@ -21,3 +23,24 @@ def database_config
 end
 
 ActiveRecord::Base.establish_connection(database_config)
+
+class AqmRecord < ActiveRecord::Base; end
+
+unless AqmRecord.table_exists?
+  ActiveRecord::Schema.define do
+    create_table :aqm_records do |t|
+      t.string :location_name
+      t.string :scraped_at
+      t.string :latest_reading_recorded_at
+      t.string :pm2_5_concentration
+      t.string :pm10_concentration
+      t.string :co_concentration
+      t.string :no2_concentration
+      t.string :differential_temperature_lower
+      t.string :differential_temperature_upper
+      t.string :wind_speed
+      t.string :wind_direction
+      t.string :sigma
+    end
+  end
+end
