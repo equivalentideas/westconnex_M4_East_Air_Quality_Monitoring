@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'capybara/poltergeist'
-require_relative 'database_config.rb'
+require_relative 'database.rb'
 
 def format_location_name_for_table(table_elm)
   text = table_elm.find('thead').text
