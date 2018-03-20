@@ -136,11 +136,12 @@ heroku buildpacks:add --index 1 https://github.com/stomita/heroku-buildpack-phan
 
 ### Running in production
 
-In production, run the script with the environment variables
-`SCRIPT_ENV=production`.
+The script runs in production when the `RACK_ENV` environment variable is set to
+"production". This is automatically set on Heroku but you can test it locally by
+running:
 
 ```
-SCRIPT_ENV=production be ruby scraper.rb
+RACK_ENV=production be ruby scraper.rb
 ```
 
 Heroku injects it's own `ENV['DATABASE_URL']`.
