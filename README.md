@@ -29,15 +29,15 @@ For each record we collect:
 * **scraped_at**, the date and time the data was collected by us
 * **latest_reading_recorded_at**, the time the website says the reading was
   recorded, in the format provided
-* **pm2_5_concentration**, Particulate less that 2.5 microns in equivalent aerodynamic diameter
-* **pm10_concentration**, Particulate less that 10 microns in equivalent aerodynamic diameter
-* **co_concentration**, Carbon Monoxide reading
-* **no2_concentration**, Nitrgen Dioxide reading
-* **differential_temperature_lower**, "Differential Temperature - Lower" reading
-* **differential_temperature_upper**, "Differential Temperature - Upper" reading
-* **wind_speed**, Wind Speed reading
-* **wind_direction**, Wind Direction reading
-* **sigma**, Sigma (Wind Direction stability) reading
+* **pm2_5_concentration**, Particulate less that 2.5 microns in equivalent aerodynamic diameter (µg/m³)
+* **pm10_concentration**, Particulate less that 10 microns in equivalent aerodynamic diameter (µg/m³)
+* **co_concentration**, Carbon Monoxide reading (ppm)
+* **no2_concentration**, Nitrgen Dioxide reading (ppm)
+* **differential_temperature_lower**, "Differential Temperature - Lower" reading (ªC)
+* **differential_temperature_upper**, "Differential Temperature - Upper" reading (ªC)
+* **wind_speed**, Wind Speed reading (m/s)
+* **wind_direction**, Wind Direction reading (ª)
+* **sigma**, Sigma (Wind Direction stability) reading (ª)
 
 See the information provided below for more information about what's recorded.
 
