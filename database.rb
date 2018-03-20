@@ -3,9 +3,7 @@ require 'active_record'
 def database_config
   case ENV['RACK_ENV']
   when 'production'
-    ActiveRecord::ConnectionAdapters::ConnectionSpecification::ConnectionUrlResolver.new(
-      ENV['DATABASE_URL']
-    ).to_hash
+    ENV['DATABASE_URL']
   else
     {
       adapter: 'postgresql',
