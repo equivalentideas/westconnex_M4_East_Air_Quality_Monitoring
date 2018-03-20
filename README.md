@@ -137,6 +137,16 @@ Run the following command and then visit http://localhost:4567/csv
 bundle exec dotenv ./app.rb
 ```
 
+#### Test suite
+
+You'll need to create a database called `westconnex_m4east_aqm_test`. The
+application will use the same credentials as it does for development to access
+that database. Then run:
+
+````
+bundle exec dotenv rake
+````
+
 ## Production Setup
 
 Add Heroku PhantomJS buildpack:
