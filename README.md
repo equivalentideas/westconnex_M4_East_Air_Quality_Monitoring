@@ -141,7 +141,7 @@ The script runs in production when the `RACK_ENV` environment variable is set to
 running:
 
 ```
-RACK_ENV=production be ruby scraper.rb
+RACK_ENV=production bundle exec ruby scraper.rb
 ```
 
 Heroku injects it's own `ENV['DATABASE_URL']`.
