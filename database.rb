@@ -36,4 +36,5 @@ unless AqmRecord.table_exists?
       t.string :sigma
     end
   end
+  AqmRecord.reset_column_information
 end
