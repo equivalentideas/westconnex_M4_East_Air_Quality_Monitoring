@@ -4,6 +4,14 @@ def database_config
   case ENV['RACK_ENV']
   when 'production'
     ENV['DATABASE_URL']
+  when 'test'
+    {
+      adapter: 'postgresql',
+      host: 'localhost',
+      username: 'westconnex_m4east_aqm',
+      password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
+      database: 'westconnex_m4east_aqm_test'
+    }
   else
     {
       adapter: 'postgresql',
