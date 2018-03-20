@@ -1,5 +1,6 @@
 This scraper collects the information about the air quality around the
-WestConnex M4 East project in Sydney, Australia.
+WestConnex M4 East project in Sydney, Australia. A small web application allows
+access to the data as a CSV file.
 
 The information is collected by a contractor for WestConnex and is published at [http://airodis.ecotech.com.au/westconnex/](http://airodis.ecotech.com.au/westconnex).
 We then collect the information published there.
@@ -122,8 +123,18 @@ DEVELOPMENT_DATABASE_PASSWORD=$password
 
 ### Running locally
 
+#### Scraper
+
 ```
 bundle exec dotenv ./scraper.rb
+```
+
+#### Web application
+
+Run the following command and then visit http://localhost:4567/csv
+
+```
+bundle exec dotenv ./app.rb
 ```
 
 ## Production Setup
