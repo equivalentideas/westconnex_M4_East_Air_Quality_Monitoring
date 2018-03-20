@@ -13,6 +13,10 @@ def tableize(string)
   string.downcase.gsub('- ', '').gsub(/(\.| )/,'_')
 end
 
+def extract_value(string)
+  string.split(' ').first
+end
+
 capybara = Capybara::Session.new(:poltergeist)
 
 capybara.visit('http://airodis.ecotech.com.au/westconnex/')
@@ -34,7 +38,7 @@ records.each do |record|
   )
 
   key_rows = capybara.all('tbody th').map {|th| tableize(th.text) }
-  value_rows = capybara.all('tbody td').map(&:text)
+  value_rows = capybara.all('tbody td').map {|td| extract_value(td.text) }
 
   record.merge!(key_rows.zip(value_rows).to_h)
 
