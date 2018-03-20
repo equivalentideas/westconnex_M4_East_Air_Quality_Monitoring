@@ -12,3 +12,7 @@ group :development do
   gem "dotenv"
   gem "pry"
 end
+
+group :development, :test do
+  gem "rubocop"
+end
