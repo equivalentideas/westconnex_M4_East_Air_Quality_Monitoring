@@ -1,10 +1,12 @@
 require 'active_record'
 
 def database_config
-  case ENV['RACK_ENV']
-  when 'production'
+  case
+  when ENV['RACK_ENV'] == 'production'
     ENV['DATABASE_URL']
-  when 'test'
+  when ENV['RACK_ENV'] == 'test' && ENV['TRAVIS'] == 'true'
+    {adapter: 'postgresql', database: 'travis_ci_test'}
+  when ENV['RACK_ENV'] == 'test'
     {
       adapter: 'postgresql',
       host: 'localhost',
@@ -12,7 +14,7 @@ def database_config
       password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
       database: 'westconnex_m4east_aqm_test'
     }
-  else
+  else # development
     {
       adapter: 'postgresql',
       host: 'localhost',
