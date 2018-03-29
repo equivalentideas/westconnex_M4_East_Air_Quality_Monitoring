@@ -1,4 +1,4 @@
-# WestConnex M4 East Air Quality Monitoring
+# WestConnex M4 East Air Quality Monitoring [![Build Status](https://travis-ci.org/equivalentideas/westconnex_M4_East_Air_Quality_Monitoring.svg?branch=master)](https://travis-ci.org/equivalentideas/westconnex_M4_East_Air_Quality_Monitoring)
 
 This scraper collects the information about the air quality around the
 WestConnex M4 East project in Sydney, Australia. A small web application allows
