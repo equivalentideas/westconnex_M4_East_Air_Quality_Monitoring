@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'capybara/poltergeist'
 require_relative 'database.rb'
@@ -10,7 +11,7 @@ def format_location_name_for_table(table_elm)
 end
 
 def tableize(string)
-  string.downcase.gsub('- ', '').gsub(/(\.| )/,'_')
+  string.downcase.gsub('- ', '').gsub(/(\.| )/, '_')
 end
 
 def extract_value(string)
@@ -32,13 +33,11 @@ end
 records.each do |record|
   capybara.find('header').click_link(record['location_name'])
 
-  record.merge!(
-    'scraped_at' => Time.now.to_s,
-    'latest_reading_recorded_at' => capybara.find('table thead').text.split('at: ').last
-  )
+  record['scraped_at'] = Time.now.to_s
+  record['latest_reading_recorded_at'] = capybara.find('table thead').text.split('at: ').last
 
-  key_rows = capybara.all('tbody th').map {|th| tableize(th.text) }
-  value_rows = capybara.all('tbody td').map {|td| extract_value(td.text) }
+  key_rows = capybara.all('tbody th').map { |th| tableize(th.text) }
+  value_rows = capybara.all('tbody td').map { |td| extract_value(td.text) }
 
   record.merge!(key_rows.zip(value_rows).to_h)
 

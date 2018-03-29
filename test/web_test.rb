@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 describe Sinatra::Application do
@@ -11,33 +13,33 @@ describe Sinatra::Application do
       AqmRecord.destroy_all
       AqmRecord.create!(
         id: 1,
-        location_name: "Haberfield Public School AQM",
-        scraped_at: "2018-03-20 12:03:28 +1100",
-        latest_reading_recorded_at: "20 March 2018 11:00:00 AM AEDT",
-        pm2_5_concentration: "17.0 (µg/m³)",
-        pm10_concentration: "44.1 (µg/m³)",
-        co_concentration: "0.07 (ppm)",
-        no2_concentration: "0.006 (ppm)",
-        differential_temperature_lower: "26.9 (°C)",
-        differential_temperature_upper: "25.8 (°C)",
-        wind_speed: "3.0 (m/s)",
-        wind_direction: "175.3 (°)",
-        sigma: "31.3 (°)"
+        location_name: 'Haberfield Public School AQM',
+        scraped_at: '2018-03-20 12:03:28 +1100',
+        latest_reading_recorded_at: '20 March 2018 11:00:00 AM AEDT',
+        pm2_5_concentration: '17.0 (µg/m³)',
+        pm10_concentration: '44.1 (µg/m³)',
+        co_concentration: '0.07 (ppm)',
+        no2_concentration: '0.006 (ppm)',
+        differential_temperature_lower: '26.9 (°C)',
+        differential_temperature_upper: '25.8 (°C)',
+        wind_speed: '3.0 (m/s)',
+        wind_direction: '175.3 (°)',
+        sigma: '31.3 (°)'
       )
       AqmRecord.create!(
         id: 2,
-        location_name: "Allen St AQM",
-        scraped_at: "2018-03-20 12:03:32 +1100",
-        latest_reading_recorded_at: "20 March 2018 11:00:00 AM AEDT",
-        pm2_5_concentration: "12.0 (µg/m³)",
-        pm10_concentration: "48.4 (µg/m³)",
-        co_concentration: "0.10 (ppm)",
-        no2_concentration: "0.009 (ppm)",
-        differential_temperature_lower: "27.1 (°C)",
-        differential_temperature_upper: "26.7 (°C)",
-        wind_speed: "2.8 (m/s)",
-        wind_direction: "169.3 (°)",
-        sigma: "32.2 (°)"
+        location_name: 'Allen St AQM',
+        scraped_at: '2018-03-20 12:03:32 +1100',
+        latest_reading_recorded_at: '20 March 2018 11:00:00 AM AEDT',
+        pm2_5_concentration: '12.0 (µg/m³)',
+        pm10_concentration: '48.4 (µg/m³)',
+        co_concentration: '0.10 (ppm)',
+        no2_concentration: '0.009 (ppm)',
+        differential_temperature_lower: '27.1 (°C)',
+        differential_temperature_upper: '26.7 (°C)',
+        wind_speed: '2.8 (m/s)',
+        wind_direction: '169.3 (°)',
+        sigma: '32.2 (°)'
       )
     end
 
