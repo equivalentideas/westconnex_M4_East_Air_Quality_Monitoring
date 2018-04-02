@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 require 'active_record'
 
 def database_config
-  case
-  when ENV['RACK_ENV'] == 'production'
+  if ENV['RACK_ENV'] == 'production'
     ENV['DATABASE_URL']
-  when ENV['RACK_ENV'] == 'test' && ENV['TRAVIS'] == 'true'
-    {adapter: 'postgresql', database: 'travis_ci_test'}
-  when ENV['RACK_ENV'] == 'test'
+  elsif ENV['RACK_ENV'] == 'test' && ENV['TRAVIS'] == 'true'
+    { adapter: 'postgresql', database: 'travis_ci_test' }
+  elsif ENV['RACK_ENV'] == 'test'
     {
       adapter: 'postgresql',
       host: 'localhost',
