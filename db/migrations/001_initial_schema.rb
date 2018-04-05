@@ -2,7 +2,7 @@
 
 Sequel.migration do
   change do
-    create_table(:aqm_records) do
+    create_table?(:aqm_records) do
       primary_key :id, type: :Bignum
       String :location_name
       String :scraped_at
