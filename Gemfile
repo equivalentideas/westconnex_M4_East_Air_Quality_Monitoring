@@ -8,6 +8,7 @@ gem 'activerecord'
 gem 'pg'
 gem 'poltergeist'
 gem 'rake'
+gem 'sequel'
 gem 'sinatra'
 
 group :development do
