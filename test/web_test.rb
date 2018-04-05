@@ -10,8 +10,9 @@ describe Sinatra::Application do
 
   describe 'the API' do
     before do
-      AqmRecord.destroy_all
-      AqmRecord.create!(
+      AqmRecord.dataset.destroy
+      AqmRecord.unrestrict_primary_key
+      AqmRecord.create(
         id: 1,
         location_name: 'Haberfield Public School AQM',
         scraped_at: '2018-03-20 12:03:28 +1100',
@@ -26,7 +27,7 @@ describe Sinatra::Application do
         wind_direction: '175.3 (°)',
         sigma: '31.3 (°)'
       )
-      AqmRecord.create!(
+      AqmRecord.create(
         id: 2,
         location_name: 'Allen St AQM',
         scraped_at: '2018-03-20 12:03:32 +1100',
