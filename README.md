@@ -124,6 +124,22 @@ variable:
 DEVELOPMENT_DATABASE_PASSWORD=$password
 ```
 
+#### Migrating/changing the database
+
+To make changes to the database we're using
+[Sequel](http://sequel.jeremyevans.net/)'s
+[migrations](http://sequel.jeremyevans.net/rdoc/files/doc/migration_rdoc.html).
+The Sequel documentation has details on how to create new migrations and you can
+see examples in our `db/migrations` directory.
+
+You can use
+[Sequel's command line tool](http://sequel.jeremyevans.net/rdoc/files/doc/migration_rdoc.html#label-Running+migrations)
+to perform the migrations or our Rake task:
+
+```
+bundle exec dotenv rake db:migrate
+```
+
 ### Running locally
 
 #### Scraper
