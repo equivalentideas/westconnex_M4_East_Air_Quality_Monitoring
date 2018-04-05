@@ -110,6 +110,7 @@ psql westconnex_m4east_aqm_development
 > REVOKE ALL ON DATABASE westconnex_m4east_aqm_development FROM PUBLIC;
 > GRANT ALL ON DATABASE westconnex_m4east_aqm_development TO westconnex_m4east_aqm;
 > \q
+bundle exec rake db:migrate
 ```
 
 When running the scrapers, add the environment varaible
