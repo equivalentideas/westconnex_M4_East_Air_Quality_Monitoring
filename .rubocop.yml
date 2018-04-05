@@ -1,6 +1,8 @@
 inherit_from: .rubocop_todo.yml
 
-# Minitest specs have long blocks so exclude them from the BlockLength check
+# Minitest specs and Sequel migrations have long blocks so exclude them from the
+# BlockLength check
 Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
+    - 'db/migrations/**/*'
