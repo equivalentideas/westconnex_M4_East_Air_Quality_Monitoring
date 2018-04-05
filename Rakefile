@@ -12,3 +12,18 @@ Rake::TestTask.new do |t|
 end
 
 RuboCop::RakeTask.new
+
+namespace :db do
+  desc 'Run database migrations'
+  task :migrate, [:version] do |_t, args|
+    require './db/connection'
+    Sequel.extension :migration
+    if args[:version]
+      puts "Migrating database to version #{args[:version]}"
+      Sequel::Migrator.run(DB, 'db/migrations', target: args[:version].to_i)
+    else
+      puts 'Migrating database to latest version'
+      Sequel::Migrator.run(DB, 'db/migrations')
+    end
+  end
+end
