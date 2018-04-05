@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/LineLength
 Sequel.migration do
   up do
     def extract_value(string)
@@ -41,3 +42,4 @@ Sequel.migration do
     end
   end
 end
+# rubocop:enable Metrics/LineLength
