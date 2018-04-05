@@ -34,7 +34,7 @@ For each record we collect:
 * **pm2_5_concentration**, Particulate less that 2.5 microns in equivalent aerodynamic diameter (µg/m³)
 * **pm10_concentration**, Particulate less that 10 microns in equivalent aerodynamic diameter (µg/m³)
 * **co_concentration**, Carbon Monoxide reading (ppm)
-* **no2_concentration**, Nitrgen Dioxide reading (ppm)
+* **no2_concentration**, Nitrogen Dioxide reading (ppm)
 * **differential_temperature_lower**, "Differential Temperature - Lower" reading (ªC)
 * **differential_temperature_upper**, "Differential Temperature - Upper" reading (ªC)
 * **wind_speed**, Wind Speed reading (m/s)
@@ -112,7 +112,7 @@ psql westconnex_m4east_aqm_development
 > \q
 ```
 
-When running the scrapers, add the environment varaible
+When running the scrapers, add the environment variable
 DEVELOPMENT_DATABASE_PASSWORD with the same value as `$password` above, to use
 the password when running the scraper. Create a file `.env` and add the
 variable:
