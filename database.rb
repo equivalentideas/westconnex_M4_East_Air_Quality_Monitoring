@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_record'
+require 'sequel'
 
 def database_config
   if ENV['RACK_ENV'] == 'production'
@@ -26,26 +26,6 @@ def database_config
   end
 end
 
-ActiveRecord::Base.establish_connection(database_config)
+DB = Sequel.connect(database_config)
 
-class AqmRecord < ActiveRecord::Base; end
-
-unless AqmRecord.table_exists?
-  ActiveRecord::Schema.define do
-    create_table :aqm_records do |t|
-      t.string :location_name
-      t.string :scraped_at
-      t.string :latest_reading_recorded_at
-      t.string :pm2_5_concentration
-      t.string :pm10_concentration
-      t.string :co_concentration
-      t.string :no2_concentration
-      t.string :differential_temperature_lower
-      t.string :differential_temperature_upper
-      t.string :wind_speed
-      t.string :wind_direction
-      t.string :sigma
-    end
-  end
-  AqmRecord.reset_column_information
-end
+class AqmRecord < Sequel::Model; end
