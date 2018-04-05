@@ -6,20 +6,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Configuration parameters: CountComments, ExcludedMethods.
-Metrics/BlockLength:
-  Max: 47
-
 # Offense count: 1
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
   Max: 21
-
-# Offense count: 1
-Style/MixinUsage:
-  Exclude:
-    - 'test/test_helper.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
