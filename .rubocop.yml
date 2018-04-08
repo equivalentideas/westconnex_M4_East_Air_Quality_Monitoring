@@ -11,4 +11,4 @@ Metrics/BlockLength:
 # usual. This is something we might want to fix in the future but we're unlikely
 # to for now.
 Metrics/LineLength:
-  Max: 100
+  Enabled: false
