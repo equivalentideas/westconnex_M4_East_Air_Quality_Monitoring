@@ -6,3 +6,9 @@ Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
     - 'db/migrations/**/*'
+
+# We have some long attribute names that mean our line lengths are longer than
+# usual. This is something we might want to fix in the future but we're unlikely
+# to for now.
+Metrics/LineLength:
+  Max: 100
