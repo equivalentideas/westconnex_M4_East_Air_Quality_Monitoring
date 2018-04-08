@@ -13,9 +13,9 @@ get '/csv' do
   content_type 'application/csv'
   attachment 'aqm_records.csv'
   CSV.generate do |csv|
-    csv << AqmRecord.attribute_names # Add header row
+    csv << AqmRecord.columns # Add header row
     AqmRecord.all.each do |record|
-      csv << record.attributes.values
+      csv << record.values.values
     end
   end
 end
