@@ -52,5 +52,20 @@ describe Sinatra::Application do
         2,Allen St AQM,2018-03-20 12:03:32 +1100,20 March 2018 11:00:00 AM AEDT,12.0,48.4,0.10,0.009,27.1,26.7,2.8,169.3,32.2
       CSV
     end
+
+    it 'should have a useful filename' do
+      Timecop.freeze(Time.new(2018, 1, 1, 12, 34)) do
+        get '/csv'
+        last_response.header['Content-Disposition'].must_include '2018-01-01_1234_m4east_air_quality_monitors.csv'
+      end
+    end
+
+    describe 'csv_filename' do
+      it 'should include the date and time the file was downloaded' do
+        Timecop.freeze(Time.new(2018, 1, 1, 12, 34)) do
+          csv_filename.must_equal '2018-01-01_1234_m4east_air_quality_monitors.csv'
+        end
+      end
+    end
   end
 end

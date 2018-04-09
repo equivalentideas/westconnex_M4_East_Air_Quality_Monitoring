@@ -3,6 +3,7 @@
 ENV['RACK_ENV'] = 'test'
 require 'minitest/autorun'
 require 'rack/test'
+require 'timecop'
 require_relative '../app'
 
 module Minitest

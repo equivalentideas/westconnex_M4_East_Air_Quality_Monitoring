@@ -15,4 +15,5 @@ gem 'sinatra'
 group :development do
   gem 'dotenv'
   gem 'pry'
+  gem 'timecop'
 end
