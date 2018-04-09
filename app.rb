@@ -19,7 +19,7 @@ get '/csv' do
   attachment csv_filename
   CSV.generate do |csv|
     csv << AqmRecord.columns # Add header row
-    AqmRecord.all.each do |record|
+    AqmRecord.order(:scraped_at).all.each do |record|
       csv << record.values.values
     end
   end
