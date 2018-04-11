@@ -57,6 +57,7 @@ class Scraper
   end
 
   def extract_value(string)
-    string.split(' ').first
+    value = string.split(' ').first
+    value == '-' ? nil : value
   end
 end
