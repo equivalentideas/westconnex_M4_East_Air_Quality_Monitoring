@@ -57,7 +57,11 @@ class Scraper
   end
 
   def extract_value(string)
-    value = string.split(' ').first
-    value == '-' ? nil : value
+    presence(string.split(' ').first)
+  end
+
+  # Checks for the presence of a reading, returns nil when there is no reading
+  def presence(reading)
+    reading == '-' ? nil : reading
   end
 end
