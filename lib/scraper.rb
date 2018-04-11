@@ -26,7 +26,7 @@ class Scraper
       capybara.find('header').click_link(record[:location_name])
 
       record[:scraped_at] = Time.now.to_s
-      record[:latest_reading_recorded_at] = capybara.find('table thead').text.split('at: ').last
+      record[:latest_reading_recorded_at] = presence(capybara.find('table thead').text.split('at: ').last)
 
       key_rows = capybara.all('tbody th').map { |th| tableize(th.text) }
       value_rows = capybara.all('tbody td').map { |td| extract_value(td.text) }
