@@ -12,3 +12,9 @@ Metrics/BlockLength:
 # to for now.
 Metrics/LineLength:
   Enabled: false
+
+# This cop gets incorrectly trigged for code inside Sequel's virtual row block
+# http://sequel.jeremyevans.net/rdoc/files/doc/dataset_filtering_rdoc.html#label-Filtering+using+expressions
+# e.g. records.where { pm2_5_concentration_ug_per_m3 > 0 }
+Style/NumericPredicate:
+  Enabled: false
