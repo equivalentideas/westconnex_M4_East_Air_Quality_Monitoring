@@ -47,8 +47,8 @@ describe Sinatra::Application do
       get '/csv'
       last_response.body.must_equal <<~CSV
         id,location_name,scraped_at,latest_reading_recorded_at,pm2_5_concentration_ug_per_m3,pm10_concentration_ug_per_m3,co_concentration_ppm,no2_concentration_ppm,differential_temperature_lower_deg_c,differential_temperature_upper_deg_c,wind_speed_metres_per_second,wind_direction_deg_true_north,sigma_deg_true_north
-        2,Allen St AQM,2018-03-20 12:03:28 +1100,20 March 2018 11:00:00 AM AEDT,12.0,48.4,0.1,0.009,27.1,26.7,2.8,169.3,32.2
-        1,Haberfield Public School AQM,2018-03-20 12:03:32 +1100,20 March 2018 11:00:00 AM AEDT,17.0,44.1,0.07,0.006,26.9,25.8,3.0,175.3,31.3
+        2,Allen St AQM,2018-03-20 01:03:28 UTC,20 March 2018 11:00:00 AM AEDT,12.0,48.4,0.1,0.009,27.1,26.7,2.8,169.3,32.2
+        1,Haberfield Public School AQM,2018-03-20 01:03:32 UTC,20 March 2018 11:00:00 AM AEDT,17.0,44.1,0.07,0.006,26.9,25.8,3.0,175.3,31.3
       CSV
     end
 
