@@ -17,3 +17,7 @@ group :development do
   gem 'pry'
   gem 'timecop'
 end
+
+group :test do
+  gem 'database_cleaner'
+end

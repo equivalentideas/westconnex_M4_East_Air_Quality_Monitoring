@@ -10,7 +10,6 @@ describe Sinatra::Application do
 
   describe 'the API' do
     before do
-      AqmRecord.dataset.destroy
       AqmRecord.unrestrict_primary_key
       AqmRecord.create(
         id: 1,
