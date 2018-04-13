@@ -26,4 +26,6 @@ def database_config
   end
 end
 
+Sequel.database_timezone = :utc
+
 DB = Sequel.connect(database_config)
