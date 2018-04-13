@@ -38,7 +38,7 @@ namespace :statistics do
         measurements = %w[pm2_5_concentration_ug_per_m3 pm10_concentration_ug_per_m3 co_concentration_ppm no2_concentration_ppm]
 
         measurements.each do |measurement|
-          values = AqmRecord.map(measurement.to_sym).compact.map(&:to_f)
+          values = AqmRecord.exclude(measurement.to_sym => '-').map(measurement.to_sym).compact.map(&:to_f)
           puts "#{measurement}: #{(values.sum(0.0) / values.length).round(10)}"
         end
       end
