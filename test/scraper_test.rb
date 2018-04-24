@@ -25,6 +25,10 @@ describe Scraper do
   end
 
   describe '#convert_time' do
+    it 'should return nil when passed nil' do
+      Scraper.new.convert_time(nil).must_be :nil?
+    end
+
     it 'should parse a string containing an incorrectly marked +10 time and convert it to UTC' do
       Scraper.new.convert_time('March 16, 2018 8:00:00 AM GMT').to_s.must_equal '2018-03-15 22:00:00 +0000'
       Scraper.new.convert_time('March 30, 2018 11:30:00 AM GMT').to_s.must_equal '2018-03-30 01:30:00 +0000'

@@ -67,6 +67,7 @@ class Scraper
   end
 
   def convert_time(datetime_string)
+    return unless datetime_string && !datetime_string.empty?
     time_with_utc = replace_false_timezone_with_utc(datetime_string)
     shift_time_back_ten_hours(Time.parse(time_with_utc))
   end
