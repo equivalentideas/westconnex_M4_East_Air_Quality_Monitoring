@@ -65,4 +65,14 @@ class Scraper
   def presence(reading)
     reading == '-' ? nil : reading
   end
+
+  def convert_time(datetime_string)
+    shift_time_back_ten_hours(Time.parse(datetime_string))
+  end
+
+  private
+
+  def shift_time_back_ten_hours(time)
+    time - (60 * 60 * 10)
+  end
 end
