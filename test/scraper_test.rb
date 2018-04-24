@@ -31,6 +31,7 @@ describe Scraper do
       Scraper.new.convert_time('April 10, 2018 4:10:00 PM GMT').to_s.must_equal '2018-04-10 06:10:00 +0000'
       Scraper.new.convert_time('April 23, 2018 10:00:00 PM GMT').to_s.must_equal '2018-04-23 12:00:00 +0000'
       Scraper.new.convert_time('24 April 2018 at 3:30:00 pm AEST').to_s.must_equal '2018-04-24 05:30:00 +0000'
+      Scraper.new.convert_time('24 April 2018 3:30:00 pm AEDT').to_s.must_equal '2018-04-24 05:30:00 +0000'
     end
 
     it 'should be a Time' do
