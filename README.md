@@ -166,6 +166,35 @@ that database. Then run:
 bundle exec dotenv rake
 ````
 
+#### Get a copy of the production data
+
+Capture and download the Postgres database from Heroku:
+
+```
+heroku pg:backups:capture --app $heroku_app_name
+heroku pg:backups:download --app $heroku_app_name
+```
+
+You'll now have a file `latest.dump`.
+
+Truncate your current local database before using pg_restore to import the new
+one:
+
+```
+psql -U westconnex_m4east_aqm westconnex_m4east_aqm_development
+> TRUNCATE aqm_records;
+> \q
+```
+
+Restore the dump to your local database. [According to Heroku](https://devcenter.heroku.com/articles/heroku-postgres-import-export#export):
+
+> This will usually generate some warnings, due to differences between your
+> Heroku database and a local database, but they are generally safe to ignore.
+
+```
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U westconnex_m4east_aqm -d westconnex_m4east_aqm_development latest.dump
+```
+
 ## Production Setup
 
 Add Heroku PhantomJS buildpack:
