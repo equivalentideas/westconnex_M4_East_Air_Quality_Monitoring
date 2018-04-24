@@ -215,6 +215,12 @@ RACK_ENV=production bundle exec ./scraper.rb
 
 Heroku injects it's own `ENV['DATABASE_URL']`.
 
+### Running database migrations in production
+
+```
+heroku run 'bundle exec rake db:migrate' --app $heroku_app_name
+```
+
 ### Access the production data
 
 ```
