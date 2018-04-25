@@ -20,6 +20,18 @@ module Aqm
       @location_name = location_name
     end
 
+    def extract_attributes_from_hash(hash)
+      self.pm2_5_concentration = hash['pm2_5_concentration']
+      self.pm10_concentration = hash['pm10_concentration']
+      self.co_concentration = hash['co_concentration']
+      self.no2_concentration = hash['no2_concentration']
+      self.differential_temperature_lower = hash['differential_temperature_lower']
+      self.differential_temperature_upper = hash['differential_temperature_upper']
+      self.wind_speed = hash['wind_speed']
+      self.wind_direction = hash['wind_direction']
+      self.sigma = hash['sigma']
+    end
+
     def latest_reading_recorded_at_converted
       return unless latest_reading_recorded_at_raw && !latest_reading_recorded_at_raw.empty?
 

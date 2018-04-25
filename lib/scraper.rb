@@ -31,17 +31,10 @@ class Scraper
 
       key_rows = capybara.all('tbody th').map { |th| tableize(th.text) }
       value_rows = capybara.all('tbody td').map { |td| extract_value(td.text) }
-      measurements = key_rows.zip(value_rows).to_h
 
-      reading.pm2_5_concentration = measurements['pm2_5_concentration']
-      reading.pm10_concentration = measurements['pm10_concentration']
-      reading.co_concentration = measurements['co_concentration']
-      reading.no2_concentration = measurements['no2_concentration']
-      reading.differential_temperature_lower = measurements['differential_temperature_lower']
-      reading.differential_temperature_upper = measurements['differential_temperature_upper']
-      reading.wind_speed = measurements['wind_speed']
-      reading.wind_direction = measurements['wind_direction']
-      reading.sigma = measurements['sigma']
+      reading.extract_attributes_from_hash(
+        key_rows.zip(value_rows).to_h
+      )
 
       AqmRecord.create(reading.serialize)
     end

@@ -38,6 +38,37 @@ describe Aqm::Reading do
     reading.latest_reading_recorded_at_raw.must_equal 'April 25, 2018 14:00:00 AEST'
   end
 
+  describe '#extract_attributes_from_hash' do
+    it 'assigns attributes and ignores unknown keys' do
+      reading = Aqm::Reading.new
+      hash = {
+        'foo' => 'bar',
+        '-' => nil,
+        'pm2_5_concentration' => 1,
+        'pm10_concentration' => 2,
+        'co_concentration' => 3,
+        'no2_concentration' => 4,
+        'differential_temperature_lower' => 5,
+        'differential_temperature_upper' => 6,
+        'wind_speed' => 7,
+        'wind_direction' => 8,
+        'sigma' => 9
+      }
+
+      reading.extract_attributes_from_hash(hash)
+
+      reading.pm2_5_concentration.must_equal 1
+      reading.pm10_concentration.must_equal 2
+      reading.co_concentration.must_equal 3
+      reading.no2_concentration.must_equal 4
+      reading.differential_temperature_lower.must_equal 5
+      reading.differential_temperature_upper.must_equal 6
+      reading.wind_speed.must_equal 7
+      reading.wind_direction.must_equal 8
+      reading.sigma.must_equal 9
+    end
+  end
+
   describe '#latest_reading_recorded_at_converted' do
     before do
       @reading = Aqm::Reading.new
