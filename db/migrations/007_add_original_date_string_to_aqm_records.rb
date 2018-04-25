@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Sequel.migration do
-  change do
+  up do
     add_column :aqm_records, :original_reading_datetime_string, String
 
     from(:aqm_records).all.each do |record|
@@ -11,5 +11,9 @@ Sequel.migration do
 
       from(:aqm_records).where(id: record[:id]).update(record)
     end
+  end
+
+  down do
+    drop_column :aqm_records, :original_reading_datetime_string
   end
 end
