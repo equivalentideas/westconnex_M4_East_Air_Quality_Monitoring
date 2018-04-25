@@ -26,9 +26,9 @@ class Scraper
       capybara.find('header').click_link(record[:location_name])
 
       record[:scraped_at] = Time.now.to_s
-      record[:original_reading_datetime_string] = presence(capybara.find('table thead').text.split('at: ').last)
+      record[:latest_reading_recorded_at_raw] = presence(capybara.find('table thead').text.split('at: ').last)
       record[:latest_reading_recorded_at] = Scraper.new.convert_time(
-        record[:original_reading_datetime_string]
+        record[:latest_reading_recorded_at_raw]
       )
 
       key_rows = capybara.all('tbody th').map { |th| tableize(th.text) }

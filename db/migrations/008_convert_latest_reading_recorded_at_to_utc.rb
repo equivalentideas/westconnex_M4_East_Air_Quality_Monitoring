@@ -19,7 +19,7 @@ Sequel.migration do
   down do
     from(:aqm_records).all.each do |record|
       record.update(
-        latest_reading_recorded_at: record[:original_reading_datetime_string]
+        latest_reading_recorded_at: record[:latest_reading_recorded_at_raw]
       )
 
       from(:aqm_records).where(id: record[:id]).update(record)

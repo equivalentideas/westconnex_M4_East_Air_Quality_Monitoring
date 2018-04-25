@@ -25,7 +25,7 @@ describe Sinatra::Application do
         wind_speed_metres_per_second: '3.0',
         wind_direction_deg_true_north: '175.3',
         sigma_deg_true_north: '31.3',
-        original_reading_datetime_string: '20 March 2018 11:00:00 AM AEDT'
+        latest_reading_recorded_at_raw: '20 March 2018 11:00:00 AM AEDT'
       )
       AqmRecord.create(
         id: 2,
@@ -41,14 +41,14 @@ describe Sinatra::Application do
         wind_speed_metres_per_second: '2.8',
         wind_direction_deg_true_north: '169.3',
         sigma_deg_true_north: '32.2',
-        original_reading_datetime_string: '20 March 2018 11:00:00 AM AEDT'
+        latest_reading_recorded_at_raw: '20 March 2018 11:00:00 AM AEDT'
       )
     end
 
     it 'should supply a CSV of all of the data' do
       get '/csv'
       last_response.body.must_equal <<~CSV
-        id,location_name,scraped_at,latest_reading_recorded_at,pm2_5_concentration_ug_per_m3,pm10_concentration_ug_per_m3,co_concentration_ppm,no2_concentration_ppm,differential_temperature_lower_deg_c,differential_temperature_upper_deg_c,wind_speed_metres_per_second,wind_direction_deg_true_north,sigma_deg_true_north,original_reading_datetime_string
+        id,location_name,scraped_at,latest_reading_recorded_at,pm2_5_concentration_ug_per_m3,pm10_concentration_ug_per_m3,co_concentration_ppm,no2_concentration_ppm,differential_temperature_lower_deg_c,differential_temperature_upper_deg_c,wind_speed_metres_per_second,wind_direction_deg_true_north,sigma_deg_true_north,latest_reading_recorded_at_raw
         2,Allen St AQM,2018-03-20 01:03:28 UTC,20 March 2018 11:00:00 AM AEDT,12.0,48.4,0.1,0.009,27.1,26.7,2.8,169.3,32.2,20 March 2018 11:00:00 AM AEDT
         1,Haberfield Public School AQM,2018-03-20 01:03:32 UTC,20 March 2018 11:00:00 AM AEDT,17.0,44.1,0.07,0.006,26.9,25.8,3.0,175.3,31.3,20 March 2018 11:00:00 AM AEDT
       CSV
