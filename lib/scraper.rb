@@ -70,13 +70,13 @@ class Scraper
 
   def convert_time(datetime_string)
     return unless datetime_string && !datetime_string.empty?
-    time_with_utc = replace_false_timezone_with_utc(datetime_string)
+    time_with_utc = replace_timezone_with_utc(datetime_string)
     shift_time_back_ten_hours(Time.parse(time_with_utc))
   end
 
   private
 
-  def replace_false_timezone_with_utc(datetime_string)
+  def replace_timezone_with_utc(datetime_string)
     time_parts = datetime_string.split
     time_parts.slice!(-1) unless time_parts[-1][/^(am|pm)$/i]
     time_parts << '+0000'
