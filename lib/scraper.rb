@@ -77,10 +77,7 @@ class Scraper
   private
 
   def replace_timezone_with_utc(datetime_string)
-    time_parts = datetime_string.split
-    time_parts.slice!(-1) unless time_parts[-1][/^(am|pm)$/i]
-    time_parts << '+0000'
-    time_parts.join ' '
+    datetime_string.gsub(/\b\S*$/, '+0000')
   end
 
   def shift_time_back_ten_hours(time)
