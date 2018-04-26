@@ -108,7 +108,7 @@ describe AqmRecord do
       end
     end
 
-    describe 'when date and time is +10 time an incorrectly marked GMT' do
+    describe 'when date and time is +10 time and incorrectly marked GMT' do
       before do
         subject.latest_reading_recorded_at = 'April 24, 2018 3:30:00 PM GMT'
       end
@@ -118,7 +118,7 @@ describe AqmRecord do
       end
     end
 
-    describe 'when date and time is +10 time an incorrectly marked AEDT' do
+    describe 'when date and time is +10 time and incorrectly marked AEDT' do
       before do
         subject.latest_reading_recorded_at = '24 April 2018 3:30:00 pm AEDT'
       end
