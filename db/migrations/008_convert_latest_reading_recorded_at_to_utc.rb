@@ -6,10 +6,7 @@ Sequel.migration do
       timezone_stripped = record[:latest_reading_recorded_at].gsub(/\b\S*$/, '+0000')
       converted_to_utc = Time.parse(timezone_stripped) - (60 * 60 * 10)
 
-      record.update(
-        latest_reading_recorded_at: converted_to_utc.to_s
-      )
-
+      record.update(latest_reading_recorded_at: converted_to_utc.to_s)
       from(:aqm_records).where(id: record[:id]).update(record)
     end
   end
