@@ -55,6 +55,49 @@ describe AqmRecord do
       end
     end
 
+    describe 'blank value' do
+      before do
+        subject.latest_reading_recorded_at = ''
+      end
+
+      it 'should be recorded as nil' do
+        subject.latest_reading_recorded_at.must_be_nil
+      end
+
+      it 'should record the raw backup as nil' do
+        subject.latest_reading_recorded_at_raw.must_be_nil
+      end
+    end
+
+    describe 'clearing attribute after setting it' do
+      before do
+        subject.latest_reading_recorded_at = '24 April 2018 at 3:30:00 pm AEST'
+        subject.latest_reading_recorded_at = ''
+      end
+
+      it 'should be recorded as nil' do
+        subject.latest_reading_recorded_at.must_be_nil
+      end
+
+      it 'should record the raw backup as nil' do
+        subject.latest_reading_recorded_at_raw.must_be_nil
+      end
+    end
+
+    describe 'empty string' do
+      before do
+        subject.latest_reading_recorded_at = ' '
+      end
+
+      it 'should be recorded as nil' do
+        subject.latest_reading_recorded_at.must_be_nil
+      end
+
+      it 'should record the raw backup as nil' do
+        subject.latest_reading_recorded_at_raw.must_be_nil
+      end
+    end
+
     describe 'when date and time is +10 time' do
       before do
         subject.latest_reading_recorded_at = '24 April 2018 at 3:30:00 pm AEST'
