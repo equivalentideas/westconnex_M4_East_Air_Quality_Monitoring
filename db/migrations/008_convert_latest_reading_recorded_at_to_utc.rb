@@ -2,8 +2,7 @@
 
 Sequel.migration do
   up do
-    from(:aqm_records).all.each do |record|
-      next unless record[:latest_reading_recorded_at]
+    from(:aqm_records).exclude(latest_reading_recorded_at: nil).each do |record|
       timezone_stripped = record[:latest_reading_recorded_at].gsub(/\b\S*$/, '+0000')
       converted_to_utc = Time.parse(timezone_stripped) - (60 * 60 * 10)
 
