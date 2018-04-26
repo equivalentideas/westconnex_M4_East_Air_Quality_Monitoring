@@ -15,10 +15,8 @@ class Scraper
 
     capybara.visit('http://airodis.ecotech.com.au/westconnex/')
 
-    readings = []
-
-    capybara.all('#sidebar table').each do |table|
-      readings << Aqm::Reading.new(
+    readings = capybara.all('#sidebar table').map do |table|
+      Aqm::Reading.new(
         location_name: format_location_name_for_table(table)
       )
     end
