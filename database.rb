@@ -11,7 +11,7 @@ class AqmRecord < Sequel::Model
       @values[:latest_reading_recorded_at] = nil
     else
       @values[:latest_reading_recorded_at_raw] = date_and_time
-      @values[:latest_reading_recorded_at] = (Time.parse(date_and_time.gsub(/\b\S*$/, '+0000')) - (60 * 60 * 10)).to_s
+      @values[:latest_reading_recorded_at] = Time.parse(date_and_time.gsub(/\b\S*$/, '+0000')) - (60 * 60 * 10)
     end
   end
 end

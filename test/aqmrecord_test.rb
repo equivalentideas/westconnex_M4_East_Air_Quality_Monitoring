@@ -104,7 +104,7 @@ describe AqmRecord do
       end
 
       it 'converts it to UTC' do
-        subject.latest_reading_recorded_at.must_equal '2018-04-24 05:30:00 +0000'
+        subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 24, 5, 30, 0, 0)
       end
     end
 
@@ -114,7 +114,7 @@ describe AqmRecord do
       end
 
       it 'reads it as +10 time and converts it to UTC' do
-        subject.latest_reading_recorded_at.must_equal '2018-04-24 05:30:00 +0000'
+        subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 24, 5, 30, 0, 0)
       end
     end
 
@@ -124,7 +124,7 @@ describe AqmRecord do
       end
 
       it 'reads it as +10 time and converts it to UTC' do
-        subject.latest_reading_recorded_at.must_equal '2018-04-24 05:30:00 +0000'
+        subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 24, 5, 30, 0, 0)
       end
 
       describe 'without a padded day number' do
@@ -133,7 +133,7 @@ describe AqmRecord do
         end
 
         it 'converts it successfully' do
-          subject.latest_reading_recorded_at.must_equal '2018-04-06 15:00:00 +0000'
+          subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 6, 15, 0, 0, 0)
         end
       end
     end
