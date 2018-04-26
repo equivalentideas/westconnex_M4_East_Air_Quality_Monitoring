@@ -14,35 +14,31 @@ class Scraper
 
     capybara.visit('http://airodis.ecotech.com.au/westconnex/')
 
-    records = []
-
-    capybara.all('#sidebar table').each do |table|
-      records << {
-        location_name: format_location_name_for_table(table)
-      }
+    location_names = capybara.all('#sidebar table').map do |table|
+      format_location_name_for_table(table)
     end
 
-    records.each do |record|
-      capybara.find('header').click_link(record[:location_name])
-
-      record[:scraped_at] = Time.now.to_s
-      record[:latest_reading_recorded_at] = presence(capybara.find('table thead').text.split('at: ').last)
+    location_names.each do |location_name|
+      capybara.find('header').click_link(location_name)
 
       key_rows = capybara.all('tbody th').map { |th| tableize(th.text) }
       value_rows = capybara.all('tbody td').map { |td| extract_value(td.text) }
       measurements = key_rows.zip(value_rows).to_h
 
-      record[:pm2_5_concentration_ug_per_m3] = measurements['pm2_5_concentration']
-      record[:pm10_concentration_ug_per_m3] = measurements['pm10_concentration']
-      record[:co_concentration_ppm] = measurements['co_concentration']
-      record[:no2_concentration_ppm] = measurements['no2_concentration']
-      record[:differential_temperature_lower_deg_c] = measurements['differential_temperature_lower']
-      record[:differential_temperature_upper_deg_c] = measurements['differential_temperature_upper']
-      record[:wind_speed_metres_per_second] = measurements['wind_speed']
-      record[:wind_direction_deg_true_north] = measurements['wind_direction']
-      record[:sigma_deg_true_north] = measurements['sigma']
-
-      AqmRecord.create(record)
+      AqmRecord.create(
+        location_name: location_name,
+        scraped_at: Time.now.to_s,
+        latest_reading_recorded_at: presence(capybara.find('table thead').text.split('at: ').last),
+        pm2_5_concentration_ug_per_m3: measurements['pm2_5_concentration'],
+        pm10_concentration_ug_per_m3: measurements['pm10_concentration'],
+        co_concentration_ppm: measurements['co_concentration'],
+        no2_concentration_ppm: measurements['no2_concentration'],
+        differential_temperature_lower_deg_c: measurements['differential_temperature_lower'],
+        differential_temperature_upper_deg_c: measurements['differential_temperature_upper'],
+        wind_speed_metres_per_second: measurements['wind_speed'],
+        wind_direction_deg_true_north: measurements['wind_direction'],
+        sigma_deg_true_north: measurements['sigma']
+      )
     end
   end
 
