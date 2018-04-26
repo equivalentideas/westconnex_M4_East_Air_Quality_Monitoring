@@ -15,13 +15,13 @@ class Scraper
 
     capybara.visit('http://airodis.ecotech.com.au/westconnex/')
 
-    readings = capybara.all('#sidebar table').map do |table|
-      Aqm::Reading.new(
-        location_name: format_location_name_for_table(table)
-      )
+    location_names = capybara.all('#sidebar table').map do |table|
+      format_location_name_for_table(table)
     end
 
-    readings.each do |reading|
+    location_names.each do |location_name|
+      reading = Aqm::Reading.new(location_name: location_name)
+
       capybara.find('header').click_link(reading.location_name)
 
       reading.scraped_at = Time.now.to_s
