@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/reading'
-
 Sequel.migration do
   up do
     from(:aqm_records).all.each do |record|
       next unless record[:latest_reading_recorded_at]
-      reading = Aqm::Reading.new
-      reading.latest_reading_recorded_at_raw = record[:latest_reading_recorded_at]
+      timezone_stripped = record[:latest_reading_recorded_at].gsub(/\b\S*$/, '+0000')
+      converted_to_utc = Time.parse(timezone_stripped) - (60 * 60 * 10)
 
       record.update(
-        latest_reading_recorded_at: reading.latest_reading_recorded_at_converted
+        latest_reading_recorded_at: converted_to_utc.to_s
       )
 
       from(:aqm_records).where(id: record[:id]).update(record)
