@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'capybara/poltergeist'
-require_relative 'reading'
 require_relative '../database'
 
 # Very basic encapsulation of our scraper code so we can begin to test methods
@@ -20,21 +19,26 @@ class Scraper
     end
 
     location_names.each do |location_name|
-      reading = Aqm::Reading.new(location_name: location_name)
-
-      capybara.find('header').click_link(reading.location_name)
-
-      reading.scraped_at = Time.now.to_s
-      reading.latest_reading_recorded_at_raw = presence(capybara.find('table thead').text.split('at: ').last)
+      capybara.find('header').click_link(location_name)
 
       key_rows = capybara.all('tbody th').map { |th| tableize(th.text) }
       value_rows = capybara.all('tbody td').map { |td| extract_value(td.text) }
+      measurements = key_rows.zip(value_rows).to_h
 
-      reading.extract_attributes_from_hash(
-        key_rows.zip(value_rows).to_h
+      AqmRecord.create(
+        location_name: location_name,
+        scraped_at: Time.now.to_s,
+        latest_reading_recorded_at: presence(capybara.find('table thead').text.split('at: ').last),
+        pm2_5_concentration_ug_per_m3: measurements['pm2_5_concentration'],
+        pm10_concentration_ug_per_m3: measurements['pm10_concentration'],
+        co_concentration_ppm: measurements['co_concentration'],
+        no2_concentration_ppm: measurements['no2_concentration'],
+        differential_temperature_lower_deg_c: measurements['differential_temperature_lower'],
+        differential_temperature_upper_deg_c: measurements['differential_temperature_upper'],
+        wind_speed_metres_per_second: measurements['wind_speed'],
+        wind_direction_deg_true_north: measurements['wind_direction'],
+        sigma_deg_true_north: measurements['sigma']
       )
-
-      AqmRecord.create(reading.serialize)
     end
   end
 
