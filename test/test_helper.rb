@@ -18,6 +18,9 @@ module Minitest
     end
 
     before :each do
+      # Set timezone to UTC+10 as this is what we use on the server
+      ENV['TZ'] = 'Etc/GMT-10'
+
       DatabaseCleaner.start
     end
 
