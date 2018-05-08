@@ -3,9 +3,11 @@
 require 'test_helper'
 
 describe Sinatra::Application do
-  it 'should politely greet visitors' do
+  it 'should counld and list the locations' do
     get '/'
-    last_response.body.must_include 'Hello world!'
+
+    last_response.body.must_include 'is currently recorded at 6 locations'
+    last_response.body.must_include 'Haberfield Public School, Allen St, Powells Creek, Ramsay St, St Lukes Park, Concord Oval.'
   end
 
   describe 'the API' do
