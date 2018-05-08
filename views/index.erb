@@ -8,11 +8,11 @@
   </head>
   <body>
     <h1>What is the air quality around Parramatta Road and the WestConnex M4 construction?</h1>
+    <a href="/csv">Download the latest readings</a>
     <p>
       The air quality surrounding Parramatta Road is currently recorded at <%= @locations_count %> locations:
       <%= @locations.join(', ') %>.
     </p>
-    <a href="/csv">Download the latest readings</a>
     <p>
       This information was collected by WestConnex Contractor EcoTech
       and first published by them at <a href='http://airodis.ecotech.com.au/westconnex/index.html'>http://airodis.ecotech.com.au/westconnex/index.html</a>.
