@@ -6,7 +6,7 @@ require 'csv'
 require_relative 'lib/aqm_record'
 
 get '/' do
-  'Hello world!'
+  erb :index
 end
 
 # TODO: Move this to a helper
