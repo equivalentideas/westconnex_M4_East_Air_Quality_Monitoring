@@ -4,12 +4,10 @@
 require 'sinatra'
 require 'csv'
 require_relative 'lib/aqm_record'
+require_relative 'lib/models/monitor'
 
 get '/' do
-  @locations = AqmRecord.distinct(:location_name)
-                        .select(:location_name)
-                        .map { |l| l.values[:location_name].sub(' AQM', '') }
-  @locations_count = @locations.count
+  @monitor_locations = Monitor.all.map { |m| m.name.sub(' AQM', '') }
 
   erb :index
 end

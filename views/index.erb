@@ -10,8 +10,8 @@
     <h1>What is the air quality around Parramatta Road and the WestConnex M4 construction?</h1>
     <a href="/csv">Download the latest readings</a>
     <p>
-      The air quality surrounding Parramatta Road is currently recorded at <%= @locations_count %> locations:
-      <%= @locations.join(', ') %>.
+      The air quality surrounding Parramatta Road is currently recorded at <%= Monitor.count %> locations:
+      <%= @monitor_locations.join(', ') %>.
     </p>
     <p>
       This information was collected by WestConnex Contractor EcoTech
