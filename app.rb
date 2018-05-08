@@ -6,6 +6,11 @@ require 'csv'
 require_relative 'lib/aqm_record'
 
 get '/' do
+  @locations = AqmRecord.distinct(:location_name)
+                        .select(:location_name)
+                        .map { |l| l.values[:location_name].sub(' AQM', '') }
+  @locations_count = @locations.count
+
   erb :index
 end
 

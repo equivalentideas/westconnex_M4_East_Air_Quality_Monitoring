@@ -4,10 +4,18 @@ require 'test_helper'
 
 describe Sinatra::Application do
   it 'should counld and list the locations' do
+    AqmRecord.create(location_name: 'Haberfield Public School')
+    AqmRecord.create(location_name: 'Haberfield Public School')
+    AqmRecord.create(location_name: 'Allen St')
+    AqmRecord.create(location_name: 'Powells Creek')
+    AqmRecord.create(location_name: 'Ramsay St')
+    AqmRecord.create(location_name: 'St Lukes Park')
+    AqmRecord.create(location_name: 'Concord Oval')
+
     get '/'
 
     last_response.body.must_include 'is currently recorded at 6 locations'
-    last_response.body.must_include 'Haberfield Public School, Allen St, Powells Creek, Ramsay St, St Lukes Park, Concord Oval.'
+    last_response.body.must_include 'Allen St, Concord Oval, Haberfield Public School, Powells Creek, Ramsay St, St Lukes Park.'
   end
 
   describe 'the API' do
