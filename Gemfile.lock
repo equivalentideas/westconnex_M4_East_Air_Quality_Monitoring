@@ -2,8 +2,17 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.0)
+    better_errors (2.5.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     coderay (1.1.2)
     database_cleaner (1.6.2)
+    debug_inspector (0.0.3)
+    dotenv (2.6.0)
+    erubi (1.8.0)
     method_source (0.9.0)
     minitest (5.11.3)
     mustermann (1.0.2)
@@ -44,7 +53,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   database_cleaner
+  dotenv
   minitest
   pg
   pry
@@ -59,4 +71,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.16.4

@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'sinatra'
+require './config/app_config'
 require 'csv'
 require_relative 'lib/aqm_record'
 require_relative 'lib/models/monitor'
