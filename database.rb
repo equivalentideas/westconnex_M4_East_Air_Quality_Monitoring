@@ -6,7 +6,7 @@ require './db/connection'
 class AqmRecord < Sequel::Model
   # Store raw value as a backup and convert value to UTC for storage in the database
   def latest_reading_recorded_at=(date_and_time)
-    if date_and_time.strip.empty?
+    if date_and_time.nil? || date_and_time.strip.empty?
       @values[:latest_reading_recorded_at_raw] = nil
       @values[:latest_reading_recorded_at] = nil
     else
