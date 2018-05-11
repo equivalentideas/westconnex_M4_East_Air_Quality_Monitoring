@@ -55,17 +55,21 @@ describe AqmRecord do
       end
     end
 
-    describe 'blank value' do
-      before do
-        subject.latest_reading_recorded_at = ''
-      end
+    [nil, '', ' '].each do |value|
+      value_as_string = value.nil? ? 'nil' : %("#{value}")
 
-      it 'should be recorded as nil' do
-        subject.latest_reading_recorded_at.must_be_nil
-      end
+      describe "blank value #{value_as_string}" do
+        before do
+          subject.latest_reading_recorded_at = value
+        end
 
-      it 'should record the raw backup as nil' do
-        subject.latest_reading_recorded_at_raw.must_be_nil
+        it 'should be recorded as nil' do
+          subject.latest_reading_recorded_at.must_be_nil
+        end
+
+        it 'should record the raw backup as nil' do
+          subject.latest_reading_recorded_at_raw.must_be_nil
+        end
       end
     end
 
@@ -73,34 +77,6 @@ describe AqmRecord do
       before do
         subject.latest_reading_recorded_at = '24 April 2018 at 3:30:00 pm AEST'
         subject.latest_reading_recorded_at = ''
-      end
-
-      it 'should be recorded as nil' do
-        subject.latest_reading_recorded_at.must_be_nil
-      end
-
-      it 'should record the raw backup as nil' do
-        subject.latest_reading_recorded_at_raw.must_be_nil
-      end
-    end
-
-    describe 'empty string' do
-      before do
-        subject.latest_reading_recorded_at = ' '
-      end
-
-      it 'should be recorded as nil' do
-        subject.latest_reading_recorded_at.must_be_nil
-      end
-
-      it 'should record the raw backup as nil' do
-        subject.latest_reading_recorded_at_raw.must_be_nil
-      end
-    end
-
-    describe 'nil value' do
-      before do
-        subject.latest_reading_recorded_at = nil
       end
 
       it 'should be recorded as nil' do
