@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require_relative '../lib/models/monitor'
 
 describe Monitor do
   describe '.count' do
