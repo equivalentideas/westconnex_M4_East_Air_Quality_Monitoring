@@ -42,9 +42,9 @@ describe Monitor do
         'St Lukes Park AQM'
       ]
     end
+  end
 
-    describe '#name' do
-      it { Monitor.new(name: 'Foo Bar').name.must_equal 'Foo Bar' }
-    end
+  describe '#name' do
+    it { Monitor.new(name: 'Foo Bar').name.must_equal 'Foo Bar' }
   end
 end
