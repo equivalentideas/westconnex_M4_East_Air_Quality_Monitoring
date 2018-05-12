@@ -28,7 +28,7 @@
       <tbody>
         <% @monitors.each do |monitor| %>
           <tr>
-            <th><%= monitor.name %></th>
+            <th><%= monitor.display_name %></th>
             <td><%= monitor.percentage_of_pm2_5_readings_over_8.to_s %>%</td>
             <td></td>
           </tr>
