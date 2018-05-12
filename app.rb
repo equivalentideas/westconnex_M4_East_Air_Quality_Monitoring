@@ -2,10 +2,8 @@
 # frozen_string_literal: true
 
 require 'sinatra'
-require './config/app_config'
 require 'csv'
-require_relative 'lib/aqm_record'
-require_relative 'lib/models/monitor'
+require './config/app_config'
 
 get '/' do
   @monitor_locations = Monitor.all.map { |m| m.name.sub(' AQM', '') }
