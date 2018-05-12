@@ -13,6 +13,29 @@
       The air quality surrounding Parramatta Road is currently recorded at <%= Monitor.count %> locations:
       <%= @monitor_locations.join(', ') %>.
     </p>
+
+    <table>
+      <legend>
+        What percentage of air quality readings have recorded particulate
+        pollution levels above the allowed annual average since March 3?
+      </legend>
+      <thead>
+        <tr>
+          <th>Monitor</th>
+          <th>PM 2.5 µg/m³</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @monitors.each do |monitor| %>
+          <tr>
+            <th><%= monitor.name %></th>
+            <td><%= monitor.percentage_of_pm2_5_readings_over_8.to_s %>%</td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
     <p>
       This information was collected by WestConnex Contractor EcoTech
       and first published by them at <a href='http://airodis.ecotech.com.au/westconnex/index.html'>http://airodis.ecotech.com.au/westconnex/index.html</a>.
