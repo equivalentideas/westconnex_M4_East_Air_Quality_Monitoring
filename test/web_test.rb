@@ -4,13 +4,13 @@ require 'test_helper'
 
 describe Sinatra::Application do
   it 'should counld and list the locations' do
-    AqmRecord.create(location_name: 'Haberfield Public School')
-    AqmRecord.create(location_name: 'Haberfield Public School')
-    AqmRecord.create(location_name: 'Allen St')
-    AqmRecord.create(location_name: 'Powells Creek')
-    AqmRecord.create(location_name: 'Ramsay St')
-    AqmRecord.create(location_name: 'St Lukes Park')
-    AqmRecord.create(location_name: 'Concord Oval')
+    AqmRecord.create(location_name: 'Haberfield Public School', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Haberfield Public School', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Allen St', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Powells Creek', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Ramsay St', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'St Lukes Park', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Concord Oval', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
 
     get '/'
 

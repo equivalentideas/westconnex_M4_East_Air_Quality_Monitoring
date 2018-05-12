@@ -17,7 +17,7 @@
     <table>
       <legend>
         What percentage of air quality readings have recorded particulate
-        pollution levels above the allowed annual average since March 3?
+        pollution levels above the allowed annual average since <%= AqmRecord.min(:latest_reading_recorded_at).strftime('%B %e') %>?
       </legend>
       <thead>
         <tr>
