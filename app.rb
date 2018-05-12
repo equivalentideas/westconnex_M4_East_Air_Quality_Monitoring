@@ -7,7 +7,7 @@ require './config/app_config'
 
 get '/' do
   @monitors = Monitor.all
-  @monitor_locations = Monitor.all.map { |m| m.name.sub(' AQM', '') }
+  @monitor_locations = Monitor.all.map { |m| m.display_name }
 
   erb :index
 end

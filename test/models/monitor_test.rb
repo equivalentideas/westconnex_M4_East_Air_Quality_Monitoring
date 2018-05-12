@@ -48,6 +48,11 @@ describe Monitor do
     it { Monitor.new(name: 'Foo Bar').name.must_equal 'Foo Bar' }
   end
 
+  describe '#display_name' do
+    it { Monitor.new(name: 'Foo Bar AQM').display_name.must_equal 'Foo Bar' }
+    it { Monitor.new(name: 'Foo AQM Bar').display_name.must_equal 'Foo AQM Bar' }
+  end
+
   describe '#percentage_of_pm2_5_readings_over_8' do
     it 'returns' do
       AqmRecord.create(location_name: 'Foo Bar', pm2_5_concentration_ug_per_m3: 6)

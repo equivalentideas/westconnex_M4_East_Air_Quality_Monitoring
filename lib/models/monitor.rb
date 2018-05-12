@@ -18,6 +18,10 @@ class Monitor
     @name = name
   end
 
+  def display_name
+    name.sub(/ AQM$/, '')
+  end
+
   def percentage_of_pm2_5_readings_over_8
     all_records = AqmRecord.where(location_name: name)
     with_pm25_over8 = all_records.where(
