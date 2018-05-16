@@ -43,8 +43,8 @@ namespace :statistics do
       location_records = AqmRecord.where(location_name: location_name)
 
       (first_record_date..Date.today).each do |date|
-        # Casting to Time and using > and < is necessary here for the filter to take into account timezone conversion
-        records = location_records.where{ (latest_reading_recorded_at >= date.to_time) & (latest_reading_recorded_at < date.next_day.to_time) }
+        # Casting to Time is necessary here for the filter to take into account timezone conversion
+        records = location_records.where(latest_reading_recorded_at: date.to_time..date.next_day.to_time)
 
         pm2_5_average = records.where { pm2_5_concentration_ug_per_m3 >= 0 }.avg(:pm2_5_concentration_ug_per_m3)&.round(2)
         pm2_5_average_with_negatives = records.avg(:pm2_5_concentration_ug_per_m3)&.round(2)
