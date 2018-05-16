@@ -5,6 +5,7 @@ require 'minitest/autorun'
 require 'rack/test'
 require 'timecop'
 require 'database_cleaner'
+require 'vcr'
 require_relative '../app'
 
 DatabaseCleaner.strategy = :transaction
@@ -28,4 +29,9 @@ module Minitest
       DatabaseCleaner.clean
     end
   end
+end
+
+VCR.configure do |config|
+  config.hook_into :webmock
+  config.cassette_library_dir = 'test/fixtures/vcr_cassettes'
 end
