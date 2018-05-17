@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'nokogiri'
+require 'time'
 
 # A reading comprising several measurements from an air quality monitoring site
 class AqmReading
