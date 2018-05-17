@@ -21,15 +21,15 @@ class AqmReading
       scraped_at: scraped_at,
       latest_reading_recorded_at: latest_reading_recorded_at,
       latest_reading_recorded_at_raw: latest_reading_recorded_at_raw,
-      pm2_5_concentration_ug_per_m3: measurements['pm2_5_concentration'],
-      pm10_concentration_ug_per_m3: measurements['pm10_concentration'],
-      co_concentration_ppm: measurements['co_concentration'],
-      no2_concentration_ppm: measurements['no2_concentration'],
-      differential_temperature_lower_deg_c: measurements['differential_temperature_lower'],
-      differential_temperature_upper_deg_c: measurements['differential_temperature_upper'],
-      wind_speed_metres_per_second: measurements['wind_speed'],
-      wind_direction_deg_true_north: measurements['wind_direction'],
-      sigma_deg_true_north: measurements['sigma']
+      pm2_5_concentration_ug_per_m3: measurements['PM2.5 Concentration'],
+      pm10_concentration_ug_per_m3: measurements['PM10 Concentration'],
+      co_concentration_ppm: measurements['CO Concentration'],
+      no2_concentration_ppm: measurements['NO2 Concentration'],
+      differential_temperature_lower_deg_c: measurements['Differential Temperature - Lower'],
+      differential_temperature_upper_deg_c: measurements['Differential Temperature - Upper'],
+      wind_speed_metres_per_second: measurements['Wind Speed'],
+      wind_direction_deg_true_north: measurements['Wind Direction'],
+      sigma_deg_true_north: measurements['Sigma']
     }
   end
 
@@ -45,15 +45,11 @@ class AqmReading
   private
 
   def measurements
-    key_rows = raw_data.search('tbody th').map { |th| tableize(th.text) }
+    key_rows = raw_data.search('tbody th').map(&:text)
     value_rows = raw_data.search('tbody td').map { |td| extract_value(td.text) }
     value_rows.map! { |measurement| measurement&.to_f }
 
     key_rows.zip(value_rows).to_h
-  end
-
-  def tableize(string)
-    string.downcase.gsub('- ', '').gsub(/(\.| )/, '_')
   end
 
   def extract_value(string)
