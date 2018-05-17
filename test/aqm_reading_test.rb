@@ -17,6 +17,7 @@ describe AqmReading do
           location_name: 'Haberfield Public School AQM',
           scraped_at: scraped_at,
           latest_reading_recorded_at: Time.new(2018, 5, 11, 5, 30, 0, '+00:00'),
+          latest_reading_recorded_at_raw: '11 May 2018 3:30:00 PM AEST',
           pm2_5_concentration_ug_per_m3: 14,
           pm10_concentration_ug_per_m3: 16,
           co_concentration_ppm: 0,

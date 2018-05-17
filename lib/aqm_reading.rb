@@ -20,6 +20,7 @@ class AqmReading
       location_name: location_name,
       scraped_at: scraped_at,
       latest_reading_recorded_at: latest_reading_recorded_at,
+      latest_reading_recorded_at_raw: latest_reading_recorded_at_raw,
       pm2_5_concentration_ug_per_m3: measurements['pm2_5_concentration'],
       pm10_concentration_ug_per_m3: measurements['pm10_concentration'],
       co_concentration_ppm: measurements['co_concentration'],
