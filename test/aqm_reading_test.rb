@@ -13,7 +13,7 @@ describe AqmReading do
 
     describe '#data' do
       it 'should provide a hash of all the data' do
-        subject.data.must_equal({
+        subject.data.must_equal(
           location_name: 'Haberfield Public School AQM',
           scraped_at: scraped_at,
           latest_reading_recorded_at: Time.new(2018, 5, 11, 5, 30, 0, '+00:00'),
@@ -26,7 +26,7 @@ describe AqmReading do
           wind_speed_metres_per_second: 4.6,
           wind_direction_deg_true_north: 266,
           sigma_deg_true_north: 23.3
-        })
+        )
       end
     end
 
