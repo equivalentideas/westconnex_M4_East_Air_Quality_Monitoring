@@ -35,5 +35,11 @@ describe AqmReading do
         subject.latest_reading_recorded_at.must_equal Time.new(2018, 5, 11, 15, 30, 0, 10)
       end
     end
+
+    describe '#latest_reading_recorded_at_raw' do
+      it 'should have the raw string value' do
+        subject.latest_reading_recorded_at_raw.must_equal '11 May 2018 3:30:00 PM AEST'
+      end
+    end
   end
 end

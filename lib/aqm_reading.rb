@@ -31,8 +31,12 @@ class AqmReading
     }
   end
 
-  def latest_reading_recorded_at
+  def latest_reading_recorded_at_raw
     presence(raw_data.at('table thead').text.split('at:').last)
+  end
+
+  def latest_reading_recorded_at
+    latest_reading_recorded_at_raw
   end
 
   private
