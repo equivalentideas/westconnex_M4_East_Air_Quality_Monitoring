@@ -48,6 +48,34 @@ describe AqmReading do
     end
   end
 
+  describe 'with all missing data' do
+    let(:scraped_at) { Time.now }
+    subject do
+      haberfield_json = File.read(File.join(File.dirname(__FILE__), 'fixtures/missing_data.json'))
+      AqmReading.new(raw_data: haberfield_json, location_name: 'Haberfield Public School AQM', scraped_at: scraped_at)
+    end
+
+    describe '#data' do
+      it 'should provide a hash of all the data' do
+        subject.data.must_equal(
+          location_name: 'Haberfield Public School AQM',
+          scraped_at: scraped_at.round,
+          latest_reading_recorded_at: nil,
+          latest_reading_recorded_at_raw: nil,
+          pm2_5_concentration_ug_per_m3: nil,
+          pm10_concentration_ug_per_m3: nil,
+          co_concentration_ppm: nil,
+          no2_concentration_ppm: nil,
+          differential_temperature_lower_deg_c: nil,
+          differential_temperature_upper_deg_c: nil,
+          wind_speed_metres_per_second: nil,
+          wind_direction_deg_true_north: nil,
+          sigma_deg_true_north: nil
+        )
+      end
+    end
+  end
+
   describe '#latest_reading_recorded_at' do
     subject { AqmReading.new(raw_data: '[]', location_name: nil, scraped_at: nil) }
 

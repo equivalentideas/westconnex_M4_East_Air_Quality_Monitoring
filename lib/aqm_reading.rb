@@ -46,17 +46,12 @@ class AqmReading
 
   def measurements
     key_rows = raw_data['Header'][1..-1]
-    value_rows = raw_data['Footer'][1][1..-1].map { |measurement| extract_value(measurement).to_f }
+    value_rows = raw_data['Footer'][1][1..-1].map { |measurement| extract_value(measurement)&.to_f }
 
     key_rows.zip(value_rows).to_h
   end
 
   def extract_value(string)
-    presence(string.split(' ').first)
-  end
-
-  # Checks for the presence of a reading, returns nil when there is no reading
-  def presence(reading)
-    reading == '-' ? nil : reading
+    string&.split(' ')&.first
   end
 end
