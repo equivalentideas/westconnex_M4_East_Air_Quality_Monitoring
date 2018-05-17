@@ -31,7 +31,11 @@ describe AqmReading do
     end
 
     describe '#latest_reading_recorded_at' do
-      it 'should extract the correct value' do
+      it 'should parse to a Time object' do
+        subject.latest_reading_recorded_at.must_be_kind_of Time
+      end
+
+      it 'should have the correct UTC time' do
         subject.latest_reading_recorded_at.must_equal Time.new(2018, 5, 11, 5, 30, 0, '+00:00')
       end
     end
