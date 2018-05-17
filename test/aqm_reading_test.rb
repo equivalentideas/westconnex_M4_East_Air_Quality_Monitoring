@@ -29,5 +29,11 @@ describe AqmReading do
         })
       end
     end
+
+    describe '#latest_reading_recorded_at' do
+      it 'should extract the correct value' do
+        subject.latest_reading_recorded_at.must_equal Time.new(2018, 5, 11, 15, 30, 0, 10)
+      end
+    end
   end
 end

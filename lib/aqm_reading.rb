@@ -18,7 +18,7 @@ class AqmReading
     {
       location_name: location_name,
       scraped_at: scraped_at,
-      latest_reading_recorded_at: presence(raw_data.at('table thead').text.split('at: ').last),
+      latest_reading_recorded_at: latest_reading_recorded_at,
       pm2_5_concentration_ug_per_m3: measurements['pm2_5_concentration'],
       pm10_concentration_ug_per_m3: measurements['pm10_concentration'],
       co_concentration_ppm: measurements['co_concentration'],
@@ -29,6 +29,10 @@ class AqmReading
       wind_direction_deg_true_north: measurements['wind_direction'],
       sigma_deg_true_north: measurements['sigma']
     }
+  end
+
+  def latest_reading_recorded_at
+    presence(raw_data.at('table thead').text.split('at: ').last)
   end
 
   private
