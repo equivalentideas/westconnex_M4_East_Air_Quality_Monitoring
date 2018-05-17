@@ -49,7 +49,7 @@ describe AqmReading do
   end
 
   describe '#latest_reading_recorded_at' do
-    subject { AqmReading.new(raw_data: nil, location_name: nil, scraped_at: nil) }
+    subject { AqmReading.new(raw_data: '[]', location_name: nil, scraped_at: nil) }
 
     [nil, '', ' '].each do |value|
       value_as_string = value.nil? ? 'nil' : %("#{value}")
@@ -58,38 +58,6 @@ describe AqmReading do
         it 'should be recorded as nil' do
           subject.stub :latest_reading_recorded_at_raw, value do
             subject.latest_reading_recorded_at.must_be_nil
-          end
-        end
-      end
-    end
-
-    describe 'when date and time is +10 time' do
-      it 'converts it to UTC' do
-        subject.stub :latest_reading_recorded_at_raw, '24 April 2018 at 3:30:00 pm AEST' do
-          subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 24, 5, 30, 0, '+00:00')
-        end
-      end
-    end
-
-    describe 'when date and time is +10 time and incorrectly marked GMT' do
-      it 'reads it as +10 time and converts it to UTC' do
-        subject.stub :latest_reading_recorded_at_raw, 'April 24, 2018 3:30:00 PM GMT' do
-          subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 24, 5, 30, 0, '+00:00')
-        end
-      end
-    end
-
-    describe 'when date and time is +10 time and incorrectly marked AEDT' do
-      it 'reads it as +10 time and converts it to UTC' do
-        subject.stub :latest_reading_recorded_at_raw, '24 April 2018 3:30:00 pm AEDT' do
-          subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 24, 5, 30, 0, '+00:00')
-        end
-      end
-
-      describe 'without a padded day number' do
-        it 'converts it successfully' do
-          subject.stub :latest_reading_recorded_at_raw, 'April 7, 2018 1:00:00 AM GMT' do
-            subject.latest_reading_recorded_at.must_equal Time.new(2018, 4, 6, 15, 0, 0, '+00:00')
           end
         end
       end
