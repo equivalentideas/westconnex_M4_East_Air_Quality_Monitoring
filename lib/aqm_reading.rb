@@ -36,7 +36,7 @@ class AqmReading
   end
 
   def latest_reading_recorded_at
-    latest_reading_recorded_at_raw
+    Time.parse(latest_reading_recorded_at_raw.gsub(/\b\S*$/, '+0000')) - (60 * 60 * 10) unless latest_reading_recorded_at_raw.nil?
   end
 
   private
