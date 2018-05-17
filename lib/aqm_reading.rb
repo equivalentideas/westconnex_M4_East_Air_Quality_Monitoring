@@ -18,7 +18,7 @@ class AqmReading
   def data
     {
       location_name: location_name,
-      scraped_at: scraped_at,
+      scraped_at: scraped_at.round,
       latest_reading_recorded_at: latest_reading_recorded_at,
       latest_reading_recorded_at_raw: latest_reading_recorded_at_raw,
       pm2_5_concentration_ug_per_m3: measurements['PM2.5 Concentration'],

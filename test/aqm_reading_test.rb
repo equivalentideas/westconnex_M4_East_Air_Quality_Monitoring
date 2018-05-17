@@ -15,7 +15,7 @@ describe AqmReading do
       it 'should provide a hash of all the data' do
         subject.data.must_equal(
           location_name: 'Haberfield Public School AQM',
-          scraped_at: scraped_at,
+          scraped_at: scraped_at.round,
           latest_reading_recorded_at: Time.new(2018, 5, 11, 5, 30, 0, '+00:00'),
           latest_reading_recorded_at_raw: '2018-05-11T05:30:00Z',
           pm2_5_concentration_ug_per_m3: 14,
