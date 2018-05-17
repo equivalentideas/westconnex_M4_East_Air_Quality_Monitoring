@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require_relative '../database'
+require_relative '../lib/aqm_record'
 
 describe AqmRecord do
   it 'can be initialized with location_name' do

@@ -3,7 +3,7 @@
 
 require 'sinatra'
 require 'csv'
-require './database'
+require_relative 'lib/aqm_record'
 
 get '/' do
   'Hello world!'

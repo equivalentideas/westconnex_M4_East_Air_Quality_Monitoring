@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative 'database'
+require_relative 'lib/aqm_record'
 require_relative 'lib/aqm_sites'
 require_relative 'lib/aqm_reading'
 
