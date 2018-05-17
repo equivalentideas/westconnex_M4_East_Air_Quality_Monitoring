@@ -32,7 +32,7 @@ class AqmReading
   end
 
   def latest_reading_recorded_at
-    presence(raw_data.at('table thead').text.split('at: ').last)
+    presence(raw_data.at('table thead').text.split('at:').last)
   end
 
   private
