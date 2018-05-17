@@ -47,6 +47,7 @@ class AqmReading
   def measurements
     key_rows = raw_data.search('tbody th').map { |th| tableize(th.text) }
     value_rows = raw_data.search('tbody td').map { |td| extract_value(td.text) }
+    value_rows.map! { |value| value.to_f unless value.nil? }
     measurements = key_rows.zip(value_rows).to_h
   end
 
