@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require_relative '../aqm_reading'
+require_relative '../lib/aqm_reading'
 
 describe AqmReading do
   Timecop.freeze do
