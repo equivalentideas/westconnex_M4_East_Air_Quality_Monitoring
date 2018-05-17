@@ -16,7 +16,7 @@ describe AqmReading do
         subject.data.must_equal({
           location_name: 'Haberfield Public School AQM',
           scraped_at: Time.now,
-          latest_reading_recorded_at: Time.new(2018, 5, 11, 15, 30, 0, '+10:00'),
+          latest_reading_recorded_at: Time.new(2018, 5, 11, 5, 30, 0, '+00:00'),
           pm2_5_concentration_ug_per_m3: 14,
           pm10_concentration_ug_per_m3: 16,
           co_concentration_ppm: 0,
@@ -32,7 +32,7 @@ describe AqmReading do
 
     describe '#latest_reading_recorded_at' do
       it 'should extract the correct value' do
-        subject.latest_reading_recorded_at.must_equal Time.new(2018, 5, 11, 15, 30, 0, '+10:00')
+        subject.latest_reading_recorded_at.must_equal Time.new(2018, 5, 11, 5, 30, 0, '+00:00')
       end
     end
 
