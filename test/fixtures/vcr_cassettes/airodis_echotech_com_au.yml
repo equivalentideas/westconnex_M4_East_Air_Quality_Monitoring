@@ -1,0 +1,255 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?format=json&report=West%20Connex%5CWebsite%5CChandos%20St%20summary.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 14 May 2018 12:46:07 GMT
+      Content-Length:
+      - '948'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ew0KICAiRGVzY3JpcHRpb24iOiAiQ2hhbmRvcyBTdCIsDQogICJIZWFkZXIiOiBbDQogICAgIkRhdGUvVGltZSIsDQogICAgIlBNMi41IENvbmNlbnRyYXRpb24iLA0KICAgICJQTTEwIENvbmNlbnRyYXRpb24iLA0KICAgICJDTyBDb25jZW50cmF0aW9uIiwNCiAgICAiTk8yIENvbmNlbnRyYXRpb24iLA0KICAgICJEaWZmZXJlbnRpYWwgVGVtcGVyYXR1cmUgLSBMb3dlciIsDQogICAgIkRpZmZlcmVudGlhbCBUZW1wZXJhdHVyZSAtIFVwcGVyIiwNCiAgICAiV2luZCBTcGVlZCIsDQogICAgIldpbmQgRGlyZWN0aW9uIiwNCiAgICAiU2lnbWEiDQogIF0sDQogICJGb290ZXIiOiBbDQogICAgWw0KICAgICAgIkxhdGVzdERhdGUiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiDQogICAgXSwNCiAgICBbDQogICAgICAiTGF0ZXN0VmFsdWUiLA0KICAgICAgIjEwLjAgKMK1Zy9twrMpIiwNCiAgICAgICI4LjEgKMK1Zy9twrMpIiwNCiAgICAgICIwLjAyIChwcG0pIiwNCiAgICAgICIwLjAxMiAocHBtKSIsDQogICAgICAiMTQuNSAowrBDKSIsDQogICAgICAiMTQuNSAowrBDKSIsDQogICAgICAiMS45IChtL3MpIiwNCiAgICAgICIyMjcuMSAowrApIiwNCiAgICAgICIxNC40ICjCsCkiDQogICAgXQ0KICBdLA0KICAiUnVuRGF0ZSI6ICIyMDE4LTA1LTE0VDEyOjQ2OjA3WiIsDQogICJUaW1lWm9uZU9mZnNldCI6IDYwMC4wDQp9
+    http_version: 
+  recorded_at: Mon, 14 May 2018 12:46:06 GMT
+- request:
+    method: get
+    uri: http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?format=json&report=West%20Connex%5CWebsite%5CConcord%20Oval%20summary.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 14 May 2018 12:46:11 GMT
+      Content-Length:
+      - '928'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ew0KICAiRGVzY3JpcHRpb24iOiAiQ29uY29yZCBPdmFsIiwNCiAgIkhlYWRlciI6IFsNCiAgICAiRGF0ZS9UaW1lIiwNCiAgICAiUE0yLjUgQ29uY2VudHJhdGlvbiIsDQogICAgIlBNMTAgQ29uY2VudHJhdGlvbiIsDQogICAgIkNPIENvbmNlbnRyYXRpb24iLA0KICAgICJOTzIgQ29uY2VudHJhdGlvbiIsDQogICAgIkRpZmZlcmVudGlhbCBUZW1wZXJhdHVyZSAtIExvd2VyIiwNCiAgICAiRGlmZmVyZW50aWFsIFRlbXBlcmF0dXJlIC0gVXBwZXIiLA0KICAgICJXaW5kIFNwZWVkIiwNCiAgICAiV2luZCBEaXJlY3Rpb24iLA0KICAgICJTaWdtYSINCiAgXSwNCiAgIkZvb3RlciI6IFsNCiAgICBbDQogICAgICAiTGF0ZXN0RGF0ZSIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo1MToxMVoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NTE6MTFaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjUxOjExWiINCiAgICBdLA0KICAgIFsNCiAgICAgICJMYXRlc3RWYWx1ZSIsDQogICAgICAiMy4wICjCtWcvbcKzKSIsDQogICAgICAiMTEuMiAowrVnL23CsykiLA0KICAgICAgIjAuNDEgKHBwbSkiLA0KICAgICAgIjAuMDE3IChwcG0pIiwNCiAgICAgICIxNS4xICjCsEMpIiwNCiAgICAgICIxNS4xICjCsEMpIiwNCiAgICAgIG51bGwsDQogICAgICBudWxsLA0KICAgICAgbnVsbA0KICAgIF0NCiAgXSwNCiAgIlJ1bkRhdGUiOiAiMjAxOC0wNS0xNFQxMjo0NjoxMVoiLA0KICAiVGltZVpvbmVPZmZzZXQiOiA2MDAuMA0KfQ==
+    http_version: 
+  recorded_at: Mon, 14 May 2018 12:46:10 GMT
+- request:
+    method: get
+    uri: http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?format=json&report=West%20Connex%5CWebsite%5CPomeroy%20St%20summary.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 14 May 2018 12:46:15 GMT
+      Content-Length:
+      - '947'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ew0KICAiRGVzY3JpcHRpb24iOiAiUG9tZXJveSBTdCIsDQogICJIZWFkZXIiOiBbDQogICAgIkRhdGUvVGltZSIsDQogICAgIlBNMi41IENvbmNlbnRyYXRpb24iLA0KICAgICJQTTEwIENvbmNlbnRyYXRpb24iLA0KICAgICJDTyBDb25jZW50cmF0aW9uIiwNCiAgICAiTk8yIENvbmNlbnRyYXRpb24iLA0KICAgICJEaWZmZXJlbnRpYWwgVGVtcGVyYXR1cmUgLSBMb3dlciIsDQogICAgIkRpZmZlcmVudGlhbCBUZW1wZXJhdHVyZSAtIFVwcGVyIiwNCiAgICAiV2luZCBTcGVlZCIsDQogICAgIldpbmQgRGlyZWN0aW9uIiwNCiAgICAiU2lnbWEiDQogIF0sDQogICJGb290ZXIiOiBbDQogICAgWw0KICAgICAgIkxhdGVzdERhdGUiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiDQogICAgXSwNCiAgICBbDQogICAgICAiTGF0ZXN0VmFsdWUiLA0KICAgICAgIjIuMCAowrVnL23CsykiLA0KICAgICAgIjkuMSAowrVnL23CsykiLA0KICAgICAgIjAuMTIgKHBwbSkiLA0KICAgICAgIjAuMDE3IChwcG0pIiwNCiAgICAgICIxNC41ICjCsEMpIiwNCiAgICAgICIxNC45ICjCsEMpIiwNCiAgICAgICIxLjEgKG0vcykiLA0KICAgICAgIjIzNS42ICjCsCkiLA0KICAgICAgIjM1LjMgKMKwKSINCiAgICBdDQogIF0sDQogICJSdW5EYXRlIjogIjIwMTgtMDUtMTRUMTI6NDY6MTVaIiwNCiAgIlRpbWVab25lT2Zmc2V0IjogNjAwLjANCn0=
+    http_version: 
+  recorded_at: Mon, 14 May 2018 12:46:14 GMT
+- request:
+    method: get
+    uri: http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?format=json&report=West%20Connex%5CWebsite%5CPowells%20Creek%20summary.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 14 May 2018 12:46:18 GMT
+      Content-Length:
+      - '951'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ew0KICAiRGVzY3JpcHRpb24iOiAiUG93ZWxscyBDcmVlayIsDQogICJIZWFkZXIiOiBbDQogICAgIkRhdGUvVGltZSIsDQogICAgIlBNMi41IENvbmNlbnRyYXRpb24iLA0KICAgICJQTTEwIENvbmNlbnRyYXRpb24iLA0KICAgICJDTyBDb25jZW50cmF0aW9uIiwNCiAgICAiTk8yIENvbmNlbnRyYXRpb24iLA0KICAgICJEaWZmZXJlbnRpYWwgVGVtcGVyYXR1cmUgLSBVcHBlciIsDQogICAgIkRpZmZlcmVudGlhbCBUZW1wZXJhdHVyZSAtIExvd2VyIiwNCiAgICAiV2luZCBTcGVlZCIsDQogICAgIldpbmQgRGlyZWN0aW9uIiwNCiAgICAiU2lnbWEiDQogIF0sDQogICJGb290ZXIiOiBbDQogICAgWw0KICAgICAgIkxhdGVzdERhdGUiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiDQogICAgXSwNCiAgICBbDQogICAgICAiTGF0ZXN0VmFsdWUiLA0KICAgICAgIjUuMCAowrVnL23CsykiLA0KICAgICAgIjQ3LjggKMK1Zy9twrMpIiwNCiAgICAgICIwLjQ3IChwcG0pIiwNCiAgICAgICIwLjAyNCAocHBtKSIsDQogICAgICAiMTUuMCAowrBDKSIsDQogICAgICAiMTQuOSAowrBDKSIsDQogICAgICAiMS4yIChtL3MpIiwNCiAgICAgICIyNTAuMyAowrApIiwNCiAgICAgICIxNC45ICjCsCkiDQogICAgXQ0KICBdLA0KICAiUnVuRGF0ZSI6ICIyMDE4LTA1LTE0VDEyOjQ2OjE5WiIsDQogICJUaW1lWm9uZU9mZnNldCI6IDYwMC4wDQp9
+    http_version: 
+  recorded_at: Mon, 14 May 2018 12:46:18 GMT
+- request:
+    method: get
+    uri: http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?format=json&report=West%20Connex%5CWebsite%5CRamsay%20St%20summary.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 14 May 2018 12:46:22 GMT
+      Content-Length:
+      - '925'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ew0KICAiRGVzY3JpcHRpb24iOiAiUmFtc2F5IFN0IiwNCiAgIkhlYWRlciI6IFsNCiAgICAiRGF0ZS9UaW1lIiwNCiAgICAiUE0yLjUgQ29uY2VudHJhdGlvbiIsDQogICAgIlBNMTAgQ29uY2VudHJhdGlvbiIsDQogICAgIkNPIENvbmNlbnRyYXRpb24iLA0KICAgICJOTzIgQ29uY2VudHJhdGlvbiIsDQogICAgIkRpZmZlcmVudGlhbCBUZW1wZXJhdHVyZSAtIExvd2VyIiwNCiAgICAiRGlmZmVyZW50aWFsIFRlbXBlcmF0dXJlIC0gVXBwZXIiLA0KICAgICJXaW5kIFNwZWVkIiwNCiAgICAiV2luZCBEaXJlY3Rpb24iLA0KICAgICJTaWdtYSINCiAgXSwNCiAgIkZvb3RlciI6IFsNCiAgICBbDQogICAgICAiTGF0ZXN0RGF0ZSIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo1MToyMloiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NTE6MjJaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjUxOjIyWiINCiAgICBdLA0KICAgIFsNCiAgICAgICJMYXRlc3RWYWx1ZSIsDQogICAgICAiMTEuMCAowrVnL23CsykiLA0KICAgICAgIjguNyAowrVnL23CsykiLA0KICAgICAgIjAuMTggKHBwbSkiLA0KICAgICAgIjAuMDEwIChwcG0pIiwNCiAgICAgICIxNC40ICjCsEMpIiwNCiAgICAgICIxNC41ICjCsEMpIiwNCiAgICAgIG51bGwsDQogICAgICBudWxsLA0KICAgICAgbnVsbA0KICAgIF0NCiAgXSwNCiAgIlJ1bkRhdGUiOiAiMjAxOC0wNS0xNFQxMjo0NjoyMloiLA0KICAiVGltZVpvbmVPZmZzZXQiOiA2MDAuMA0KfQ==
+    http_version: 
+  recorded_at: Mon, 14 May 2018 12:46:21 GMT
+- request:
+    method: get
+    uri: http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?format=json&report=West%20Connex%5CWebsite%5CSt%20Lukes%20Park%20summary.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/7.5
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 14 May 2018 12:46:26 GMT
+      Content-Length:
+      - '951'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ew0KICAiRGVzY3JpcHRpb24iOiAiU3QgTHVrZXMgUGFyayIsDQogICJIZWFkZXIiOiBbDQogICAgIkRhdGUvVGltZSIsDQogICAgIlBNMi41IENvbmNlbnRyYXRpb24iLA0KICAgICJQTTEwIENvbmNlbnRyYXRpb24iLA0KICAgICJDTyBDb25jZW50cmF0aW9uIiwNCiAgICAiTk8yIENvbmNlbnRyYXRpb24iLA0KICAgICJEaWZmZXJlbnRpYWwgVGVtcGVyYXR1cmUgLSBMb3dlciIsDQogICAgIkRpZmZlcmVudGlhbCBUZW1wZXJhdHVyZSAtIFVwcGVyIiwNCiAgICAiV2luZCBTcGVlZCIsDQogICAgIldpbmQgRGlyZWN0aW9uIiwNCiAgICAiU2lnbWEiDQogIF0sDQogICJGb290ZXIiOiBbDQogICAgWw0KICAgICAgIkxhdGVzdERhdGUiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiLA0KICAgICAgIjIwMTgtMDUtMTRUMTI6NDA6MDBaIiwNCiAgICAgICIyMDE4LTA1LTE0VDEyOjQwOjAwWiIsDQogICAgICAiMjAxOC0wNS0xNFQxMjo0MDowMFoiDQogICAgXSwNCiAgICBbDQogICAgICAiTGF0ZXN0VmFsdWUiLA0KICAgICAgIjQuMCAowrVnL23CsykiLA0KICAgICAgIjEwLjkgKMK1Zy9twrMpIiwNCiAgICAgICIwLjIxIChwcG0pIiwNCiAgICAgICIwLjAxMiAocHBtKSIsDQogICAgICAiMTQuNSAowrBDKSIsDQogICAgICAiMTQuOSAowrBDKSIsDQogICAgICAiMC41IChtL3MpIiwNCiAgICAgICIyMjAuMCAowrApIiwNCiAgICAgICIzNy4zICjCsCkiDQogICAgXQ0KICBdLA0KICAiUnVuRGF0ZSI6ICIyMDE4LTA1LTE0VDEyOjQ2OjI2WiIsDQogICJUaW1lWm9uZU9mZnNldCI6IDYwMC4wDQp9
+    http_version: 
+  recorded_at: Mon, 14 May 2018 12:46:25 GMT
+recorded_with: VCR 4.0.0
