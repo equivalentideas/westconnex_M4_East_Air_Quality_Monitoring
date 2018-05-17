@@ -7,8 +7,8 @@ describe AqmReading do
   describe 'with complete and valid raw data' do
     let(:scraped_at) { Time.now }
     subject do
-      haberfield_html = File.read(File.join(File.dirname(__FILE__), 'fixtures/haberfield.html'))
-      AqmReading.new(raw_data: haberfield_html, location_name: 'Haberfield Public School AQM', scraped_at: scraped_at)
+      haberfield_json = File.read(File.join(File.dirname(__FILE__), 'fixtures/haberfield.json'))
+      AqmReading.new(raw_data: haberfield_json, location_name: 'Haberfield Public School AQM', scraped_at: scraped_at)
     end
 
     describe '#data' do
@@ -17,7 +17,7 @@ describe AqmReading do
           location_name: 'Haberfield Public School AQM',
           scraped_at: scraped_at,
           latest_reading_recorded_at: Time.new(2018, 5, 11, 5, 30, 0, '+00:00'),
-          latest_reading_recorded_at_raw: '11 May 2018 3:30:00 PM AEST',
+          latest_reading_recorded_at_raw: '2018-05-11T05:30:00Z',
           pm2_5_concentration_ug_per_m3: 14,
           pm10_concentration_ug_per_m3: 16,
           co_concentration_ppm: 0,
@@ -43,7 +43,7 @@ describe AqmReading do
 
     describe '#latest_reading_recorded_at_raw' do
       it 'should have the raw string value' do
-        subject.latest_reading_recorded_at_raw.must_equal '11 May 2018 3:30:00 PM AEST'
+        subject.latest_reading_recorded_at_raw.must_equal '2018-05-11T05:30:00Z'
       end
     end
   end

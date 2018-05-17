@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'nokogiri'
+require 'json'
 require 'time'
 
 # A reading comprising several measurements from an air quality monitoring site
 class AqmReading
   attr_reader :raw_data, :location_name, :scraped_at
 
-  # @param raw_data [String] HTML of page containing air quality measurements
+  # @param raw_data [String] JSON of page containing air quality measurements
   def initialize(raw_data:, location_name:, scraped_at:)
-    @raw_data = Nokogiri::HTML(raw_data)
+    @raw_data = JSON.parse(raw_data)
     @location_name = location_name
     @scraped_at = scraped_at
   end
@@ -34,7 +34,7 @@ class AqmReading
   end
 
   def latest_reading_recorded_at_raw
-    presence(raw_data.at('table thead').text.split('at:').last)
+    raw_data['Footer'][0][1]
   end
 
   def latest_reading_recorded_at
@@ -45,9 +45,8 @@ class AqmReading
   private
 
   def measurements
-    key_rows = raw_data.search('tbody th').map(&:text)
-    value_rows = raw_data.search('tbody td').map { |td| extract_value(td.text) }
-    value_rows.map! { |measurement| measurement&.to_f }
+    key_rows = raw_data['Header'][1..-1]
+    value_rows = raw_data['Footer'][1][1..-1].map { |measurement| extract_value(measurement).to_f }
 
     key_rows.zip(value_rows).to_h
   end
