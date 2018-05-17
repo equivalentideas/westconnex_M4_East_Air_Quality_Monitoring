@@ -4,18 +4,18 @@ require 'test_helper'
 require_relative '../lib/aqm_reading'
 
 describe AqmReading do
-  # All tests are wrapped in this Timecop block to make testing scraped_at easier
-  Timecop.freeze do
+  describe 'with complete and valid raw data' do
+    let(:scraped_at) { Time.now }
     subject do
       haberfield_html = File.read(File.join(File.dirname(__FILE__), 'fixtures/haberfield.html'))
-      AqmReading.new(raw_data: haberfield_html, location_name: 'Haberfield Public School AQM', scraped_at: Time.now)
+      AqmReading.new(raw_data: haberfield_html, location_name: 'Haberfield Public School AQM', scraped_at: scraped_at)
     end
 
     describe '#data' do
       it 'should provide a hash of all the data' do
         subject.data.must_equal({
           location_name: 'Haberfield Public School AQM',
-          scraped_at: Time.now,
+          scraped_at: scraped_at,
           latest_reading_recorded_at: Time.new(2018, 5, 11, 5, 30, 0, '+00:00'),
           pm2_5_concentration_ug_per_m3: 14,
           pm10_concentration_ug_per_m3: 16,
