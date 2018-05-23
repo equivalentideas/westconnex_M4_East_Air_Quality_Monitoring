@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'activerecord'
 gem 'pg'
 gem 'rake'
 gem 'rubocop', require: false
@@ -13,6 +12,7 @@ gem 'sinatra'
 
 group :development do
   gem 'dotenv'
+  gem 'minitest'
   gem 'pry'
   gem 'rack-test'
   gem 'timecop'
