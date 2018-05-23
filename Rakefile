@@ -27,3 +27,18 @@ namespace :db do
     end
   end
 end
+
+namespace :fix do
+  # TODO: Should be removed once deployed and successfully run
+  desc 'Fix incorrect latest_reading_recorded_at - see #54'
+  task :incorrect_latest_reading_recorded_at do
+    require './lib/aqm_record'
+    # This was the last scraped record before the problematic deploy
+    last_correct_reading_scraped_at = Time.new(2018, 5, 1, 21, 51, 44, '+10:00')
+
+    AqmRecord.where { scraped_at > last_correct_reading_scraped_at }.exclude(latest_reading_recorded_at: nil).each do |record|
+      # The actual problem is that latest_reading_recorded_at_raw is now in GMT instead of AEST so a straight `#parse` is all we need
+      record.update(latest_reading_recorded_at: Time.parse(record.latest_reading_recorded_at_raw))
+    end
+  end
+end
