@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'nokogiri'
+require 'json'
 require 'time'
 
 # A reading comprising several measurements from an air quality monitoring site
 class AqmReading
   attr_reader :raw_data, :location_name, :scraped_at
 
-  # @param raw_data [String] HTML of page containing air quality measurements
+  # @param raw_data [String] JSON of page containing air quality measurements
   def initialize(raw_data:, location_name:, scraped_at:)
-    @raw_data = Nokogiri::HTML(raw_data)
+    @raw_data = JSON.parse(raw_data)
     @location_name = location_name
     @scraped_at = scraped_at
   end
@@ -18,7 +18,7 @@ class AqmReading
   def data
     {
       location_name: location_name,
-      scraped_at: scraped_at,
+      scraped_at: scraped_at.round,
       latest_reading_recorded_at: latest_reading_recorded_at,
       latest_reading_recorded_at_raw: latest_reading_recorded_at_raw,
       pm2_5_concentration_ug_per_m3: measurements['PM2.5 Concentration'],
@@ -34,30 +34,24 @@ class AqmReading
   end
 
   def latest_reading_recorded_at_raw
-    presence(raw_data.at('table thead').text.split('at:').last)
+    raw_data['Footer'][0][1]
   end
 
   def latest_reading_recorded_at
     return if latest_reading_recorded_at_raw.nil? || latest_reading_recorded_at_raw.strip.empty?
-    Time.parse(latest_reading_recorded_at_raw.gsub(/\b\S*$/, '+0000')) - (60 * 60 * 10)
+    Time.parse(latest_reading_recorded_at_raw)
   end
 
   private
 
   def measurements
-    key_rows = raw_data.search('tbody th').map(&:text)
-    value_rows = raw_data.search('tbody td').map { |td| extract_value(td.text) }
-    value_rows.map! { |measurement| measurement&.to_f }
+    key_rows = raw_data['Header'][1..-1]
+    value_rows = raw_data['Footer'][1][1..-1].map { |measurement| extract_value(measurement)&.to_f }
 
     key_rows.zip(value_rows).to_h
   end
 
   def extract_value(string)
-    presence(string.split(' ').first)
-  end
-
-  # Checks for the presence of a reading, returns nil when there is no reading
-  def presence(reading)
-    reading == '-' ? nil : reading
+    string&.split(' ')&.first
   end
 end

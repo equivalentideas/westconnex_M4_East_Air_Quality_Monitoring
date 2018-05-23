@@ -1,0 +1,43 @@
+{
+  "Description": "Chandos St",
+  "Header": [
+    "Date/Time",
+    "PM2.5 Concentration",
+    "PM10 Concentration",
+    "CO Concentration",
+    "NO2 Concentration",
+    "Differential Temperature - Lower",
+    "Differential Temperature - Upper",
+    "Wind Speed",
+    "Wind Direction",
+    "Sigma"
+  ],
+  "Footer": [
+    [
+      "LatestDate",
+      null,
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z",
+      "2018-05-11T05:30:00Z"
+    ],
+    [
+      "LatestValue",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "RunDate": "2018-05-11T05:33:29Z",
+  "TimeZoneOffset": 600.0
+}

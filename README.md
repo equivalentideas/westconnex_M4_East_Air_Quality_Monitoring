@@ -95,7 +95,6 @@ instrument failures etc
 ### Dependencies
 
 * PostgreSQL
-* PhantomJS
 
 ### Database setup
 
@@ -196,12 +195,6 @@ pg_restore --verbose --clean --no-acl --no-owner -h localhost -U westconnex_m4ea
 ```
 
 ## Production Setup
-
-Add Heroku PhantomJS buildpack:
-
-```
-heroku buildpacks:add --index 1 https://github.com/stomita/heroku-buildpack-phantomjs --app $heroku_app_name
-```
 
 ### Running in production
 
