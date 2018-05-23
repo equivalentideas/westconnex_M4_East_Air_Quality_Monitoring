@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sequel'
+require 'yaml'
 
 def environment
   if ENV['RACK_ENV'] == 'production'
@@ -14,24 +15,16 @@ def environment
   end
 end
 
+def config_yml
+  YAML.load_file(File.join(File.dirname(__FILE__), 'config.yml'))
+end
+
 def database_config
   {
     production: ENV['DATABASE_URL'],
     travis: { adapter: 'postgresql', database: 'travis_ci_test' },
-    test: {
-      adapter: 'postgresql',
-      host: 'localhost',
-      username: 'westconnex_m4east_aqm',
-      password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
-      database: 'westconnex_m4east_aqm_test'
-    },
-    development: {
-      adapter: 'postgresql',
-      host: 'localhost',
-      username: 'westconnex_m4east_aqm',
-      password: ENV['DEVELOPMENT_DATABASE_PASSWORD'],
-      database: 'westconnex_m4east_aqm_development'
-    }
+    test: config_yml['test'],
+    development: config_yml['development']
   }
 end
 

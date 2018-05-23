@@ -112,15 +112,11 @@ psql westconnex_m4east_aqm_development
 bundle exec rake db:migrate
 ```
 
-When running the scrapers, add the environment variable
-DEVELOPMENT_DATABASE_PASSWORD with the same value as `$password` above, to use
-the password when running the scraper. Create a file `.env` and add the
-variable:
+Copy the example database configuration file and replace the example
+configuration values with your own:
 
 ```
-# .env
-
-DEVELOPMENT_DATABASE_PASSWORD=$password
+cp db/config.yml.example db/config.yml
 ```
 
 #### Migrating/changing the database
@@ -136,7 +132,7 @@ You can use
 to perform the migrations or our Rake task:
 
 ```
-bundle exec dotenv rake db:migrate
+bundle exec rake db:migrate
 ```
 
 ### Running locally
@@ -144,7 +140,7 @@ bundle exec dotenv rake db:migrate
 #### Scraper
 
 ```
-bundle exec dotenv ./scraper.rb
+bundle exec ./scraper.rb
 ```
 
 #### Web application
@@ -152,17 +148,16 @@ bundle exec dotenv ./scraper.rb
 Run the following command and then visit http://localhost:4567/csv
 
 ```
-bundle exec dotenv ./app.rb
+bundle exec ./app.rb
 ```
 
 #### Test suite
 
-You'll need to create a database called `westconnex_m4east_aqm_test`. The
-application will use the same credentials as it does for development to access
-that database. Then run:
+Make sure you've created a test database and entered the correct configuration
+values for it in `db/config.yml`. Then run:
 
 ````
-bundle exec dotenv rake
+bundle exec rake
 ````
 
 #### Get a copy of the production data

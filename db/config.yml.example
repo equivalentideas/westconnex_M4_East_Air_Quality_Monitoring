@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  host: localhost
+  username: westconnex_m4east_aqm
+  password: password
+  database: westconnex_m4east_aqm_development
+
+test:
+  adapter: postgresql
+  host: localhost
+  username: westconnex_m4east_aqm
+  password: password
+  database: westconnex_m4east_aqm_test

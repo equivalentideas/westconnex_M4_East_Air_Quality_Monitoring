@@ -11,7 +11,6 @@ gem 'sequel'
 gem 'sinatra'
 
 group :development do
-  gem 'dotenv'
   gem 'minitest'
   gem 'pry'
   gem 'rack-test'
