@@ -211,7 +211,7 @@ Heroku injects it's own `ENV['DATABASE_URL']`.
 ### Running database migrations in production
 
 ```
-heroku run 'bundle exec rake db:migrate'
+heroku run rake db:migrate
 ```
 
 ### Access the production data
