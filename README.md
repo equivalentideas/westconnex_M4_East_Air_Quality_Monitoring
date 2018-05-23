@@ -170,8 +170,8 @@ bundle exec dotenv rake
 Capture and download the Postgres database from Heroku:
 
 ```
-heroku pg:backups:capture --app $heroku_app_name
-heroku pg:backups:download --app $heroku_app_name
+heroku pg:backups:capture
+heroku pg:backups:download
 ```
 
 You'll now have a file `latest.dump`.
@@ -211,13 +211,13 @@ Heroku injects it's own `ENV['DATABASE_URL']`.
 ### Running database migrations in production
 
 ```
-heroku run 'bundle exec rake db:migrate' --app $heroku_app_name
+heroku run 'bundle exec rake db:migrate'
 ```
 
 ### Access the production data
 
 ```
-heroku pg:psql --app $heroku_app_name
+heroku pg:psql
 
 > SELECT * FROM aqm_records;
 ```
@@ -227,5 +227,5 @@ heroku pg:psql --app $heroku_app_name
 You can view the logs from the [Heroku scheduler](https://devcenter.heroku.com/articles/scheduler#inspecting-output) with:
 
 ```
-heroku logs --app $heroku_app_name --ps scheduler
+heroku logs --ps scheduler
 ```
