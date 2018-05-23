@@ -6,8 +6,6 @@ require 'yaml'
 def environment
   if ENV['RACK_ENV'] == 'production'
     :production
-  elsif ENV['RACK_ENV'] == 'test' && ENV['TRAVIS'] == 'true'
-    :travis
   elsif ENV['RACK_ENV'] == 'test'
     :test
   else
@@ -22,7 +20,6 @@ end
 def database_config
   {
     production: ENV['DATABASE_URL'],
-    travis: { adapter: 'postgresql', database: 'travis_ci_test' },
     test: config_yml['test'],
     development: config_yml['development']
   }
