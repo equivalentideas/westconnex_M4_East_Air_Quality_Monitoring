@@ -29,8 +29,8 @@ For each record we collect:
 
 * **location_name**, the name of the air quality monitoring station, e.g.  'Haberfield Public School AQM'
 * **scraped_at**, the date and time the data was collected by us
-* **latest_reading_recorded_at**, the time the website says the reading was
-  recorded, in the format provided
+* **latest_reading_recorded_at**, the time the website says the reading was recorded at, [parsed into a standard format with a timezone](https://github.com/equivalentideas/westconnex_M4_East_Air_Quality_Monitoring/blob/master/lib/aqm_reading.rb#L40-L43), e.g. "2018-03-16 09:00:00 +1100"
+* **latest_reading_recorded_at_raw**, the time the website says the reading was recorded, in the format they present it in, e.g. "March 16, 2018 8:00:00 AM GMT". [There have been issues in their presentation](https://github.com/equivalentideas/westconnex_M4_East_Air_Quality_Monitoring/issues/32#issuecomment-381038119), so we are keeping this raw format incase any values need to be corrected.
 * **pm2_5_concentration**, Particulate less that 2.5 microns in equivalent aerodynamic diameter (µg/m³)
 * **pm10_concentration**, Particulate less that 10 microns in equivalent aerodynamic diameter (µg/m³)
 * **co_concentration**, Carbon Monoxide reading (ppm)
