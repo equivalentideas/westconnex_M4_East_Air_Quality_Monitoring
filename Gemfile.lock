@@ -4,7 +4,6 @@ GEM
     ast (2.4.0)
     coderay (1.1.2)
     database_cleaner (1.6.2)
-    dotenv (2.2.1)
     method_source (0.9.0)
     minitest (5.11.3)
     mustermann (1.0.2)
@@ -46,7 +45,6 @@ PLATFORMS
 
 DEPENDENCIES
   database_cleaner
-  dotenv
   minitest
   pg
   pry
