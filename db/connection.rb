@@ -5,11 +5,11 @@ require 'yaml'
 
 def environment
   if ENV['RACK_ENV'] == 'production'
-    :production
+    'production'
   elsif ENV['RACK_ENV'] == 'test'
-    :test
+    'test'
   else
-    :development
+    'development'
   end
 end
 
@@ -18,14 +18,10 @@ def config_yml
 end
 
 def database_config
-  {
-    production: ENV['DATABASE_URL'],
-    test: config_yml['test'],
-    development: config_yml['development']
-  }
+  ENV['DATABASE_URL'] ? ENV['DATABASE_URL'] : config_yml[environment]
 end
 
 Sequel.database_timezone = :utc
 Sequel.application_timezone = :local
 
-DB = Sequel.connect(database_config[environment])
+DB = Sequel.connect(database_config)
