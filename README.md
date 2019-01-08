@@ -92,6 +92,36 @@ instrument failures etc
 
 ## Setup
 
+### Docker
+
+`docker-compose` can save you from installing and configuring Postgres and Ruby.
+On the other hand you'll need Docker and docker-composed installed so
+`¯\_(ツ)_/¯`.
+
+Here's how:
+
+```
+# FIXME: These setup steps shouldn't be needed, we should handle them in the app
+# Boot the database container so it sets up Postgres
+docker-compose up -d db
+
+# Migrate the database
+docker-compose run web bundle exec rake db:migrate
+
+# Boot web container
+docker-compose up -d web
+
+# Scrape some records
+docker-compose exec web bundle exec scraper.rb
+```
+
+When you're finished you can `docker-compose down`. Your data will be persisted
+and you'll be able to boot the environment with just a `docker-compose up`.
+
+To restore a Heroku backup:
+
+`docker-compose run db pg_restore --verbose --clean --no-acl --no-owner -h db -U postgres -d westconnex_m4east_aqm_development app/latest.dump`
+
 ### Dependencies
 
 * PostgreSQL
