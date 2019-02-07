@@ -122,6 +122,17 @@ To restore a Heroku backup:
 
 `docker-compose run db pg_restore --verbose --clean --no-acl --no-owner -h db -U postgres -d westconnex_m4east_aqm_development app/latest.dump`
 
+To run tests:
+
+```
+# Create test database and migrate schema
+docker-compose exec db psql -U postgres -c "CREATE DATABASE westconnex_m4east_aqm_test"
+docker-compose run -e RACK_ENV=test web bundle exec rake db:migrate
+
+# Run test suite
+docker-compose run -e RACK_ENV=test web bundle exec rake
+```
+
 ### Dependencies
 
 * PostgreSQL
