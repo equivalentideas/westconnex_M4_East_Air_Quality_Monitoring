@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres:10.5
+    volumes:
+      - .:/app
+      - postgres_westconnex:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=westconnex_m4east_aqm_development
+
+  web:
+    build: .
+    command: bundle exec ./app.rb -o 0.0.0.0
+    environment:
+      - DOCKER=true
+    volumes:
+      - .:/app
+    ports:
+      - "4567:4567"
+    depends_on:
+      - db
+
+volumes:
+  postgres_westconnex:
