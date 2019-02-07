@@ -9,7 +9,7 @@ get '/' do
   @monitors = Monitor.all
   @monitor_locations = Monitor.all.map(&:display_name)
 
-  erb :index
+  erb :index, layout: false
 end
 
 get '/statistics' do
