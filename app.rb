@@ -20,7 +20,7 @@ get '/statistics' do
       location_name: location_name,
       first_record: records.first.scraped_at,
       record_count: records.count,
-      recent: records.last(5),
+      recent: records.last(5).reverse,
       avg_pm2_5_concentration_ug_per_m3: records.where { pm2_5_concentration_ug_per_m3 >= 0 }.avg(:pm2_5_concentration_ug_per_m3).round(1),
       negatives_pm2_5_concentration_ug_per_m3: records.where { pm2_5_concentration_ug_per_m3 < 0 }.count,
       avg_pm10_concentration_ug_per_m3: records.where { pm10_concentration_ug_per_m3 >= 0 }.avg(:pm10_concentration_ug_per_m3).round(1),
