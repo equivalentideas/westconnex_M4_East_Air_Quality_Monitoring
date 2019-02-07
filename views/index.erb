@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Parramatta Road Local Air Quality, WestConnex Measurements</title>
+    <meta name="description" content="How is the air quality around Parramatta and the WestConnex M4 construction?">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>What is the air quality around Parramatta Road and the WestConnex M4 construction?</h1>
+    <a href="/csv">Download the latest readings spreadsheet</a>
+    <p>
+      The air quality surrounding Parramatta Road is currently recorded at <%= Monitor.count %> locations:
+      <%= @monitor_locations.join(', ') %>.
+    </p>
+
+    <table>
+      <legend>
+        What percentage of air quality readings have recorded particulate
+        pollution levels above the allowed annual average since <%= AqmRecord.min(:latest_reading_recorded_at).strftime('%B %e') %>?
+      </legend>
+      <thead>
+        <tr>
+          <th>Monitor</th>
+          <th>PM 2.5 µg/m³</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @monitors.each do |monitor| %>
+          <tr>
+            <th><%= monitor.display_name %></th>
+            <td><%= monitor.percentage_of_pm2_5_readings_over_8.to_s %>%</td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <p>
+      These air quality readings were collected by WestConnex Contractor EcoTech
+      and first published at <a href='http://airodis.ecotech.com.au/westconnex/index.html'>http://airodis.ecotech.com.au/westconnex/index.html</a>.
+    </p>
+  </body>
+</html>

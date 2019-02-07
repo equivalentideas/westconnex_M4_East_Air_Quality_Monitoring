@@ -3,10 +3,13 @@
 
 require 'sinatra'
 require 'csv'
-require_relative 'lib/aqm_record'
+require './config/app_config'
 
 get '/' do
-  'Hello world!'
+  @monitors = Monitor.all
+  @monitor_locations = Monitor.all.map(&:display_name)
+
+  erb :index
 end
 
 # TODO: Move this to a helper

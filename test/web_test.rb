@@ -3,9 +3,19 @@
 require 'test_helper'
 
 describe Sinatra::Application do
-  it 'should politely greet visitors' do
+  it 'should counld and list the locations' do
+    AqmRecord.create(location_name: 'Haberfield Public School', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Haberfield Public School', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Allen St', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Powells Creek', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Ramsay St', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'St Lukes Park', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+    AqmRecord.create(location_name: 'Concord Oval', scraped_at: '2018-05-12', latest_reading_recorded_at: '2018-05-12 10:00')
+
     get '/'
-    last_response.body.must_include 'Hello world!'
+
+    last_response.body.must_include 'is currently recorded at 6 locations'
+    last_response.body.must_include 'Allen St, Concord Oval, Haberfield Public School, Powells Creek, Ramsay St, St Lukes Park.'
   end
 
   describe 'the API' do
