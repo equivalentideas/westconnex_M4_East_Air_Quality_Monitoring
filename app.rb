@@ -13,7 +13,7 @@ get '/' do
 end
 
 get '/statistics' do
-  sites = AqmRecord.select(:location_name).distinct.map(:location_name)
+  sites = AqmRecord.select(:location_name).distinct.order(:location_name).map(:location_name)
   @statistics = sites.map do |location_name|
     records = AqmRecord.where(location_name: location_name).order(:scraped_at)
     {
