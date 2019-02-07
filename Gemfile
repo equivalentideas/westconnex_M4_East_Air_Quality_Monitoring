@@ -11,10 +11,10 @@ gem 'sequel'
 gem 'sinatra'
 
 group :development do
-  gem 'minitest'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'dotenv'
+  gem 'minitest'
   gem 'pry'
   gem 'rack-test'
   gem 'timecop'
