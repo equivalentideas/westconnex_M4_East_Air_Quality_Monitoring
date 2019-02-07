@@ -10,3 +10,4 @@ end
 require './db/connection'
 require './lib/aqm_record'
 require './lib/models/monitor'
+require './lib/helpers'

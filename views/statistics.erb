@@ -27,4 +27,6 @@
       </tr>
     </tbody>
   </table>
+  <p>Most recently scraped records:</p>
+  <%= records_as_textarea(records: statistic[:recent], rows: 5, cols: 170) %>
 <% end %>
