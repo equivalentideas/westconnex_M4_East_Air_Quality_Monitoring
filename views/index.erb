@@ -8,7 +8,10 @@
   </head>
   <body>
     <h1>What is the air quality around Parramatta Road and the WestConnex M4 construction?</h1>
-    <a href="/csv">Download the latest readings spreadsheet</a>
+    <ul>
+      <li><a href="/csv">Download the latest readings spreadsheet</a></li>
+      <li><a href="/statistics">Look at some nerdy statistics</a></li>
+    </ul>
     <p>
       The air quality surrounding Parramatta Road is currently recorded at <%= Monitor.count %> locations:
       <%= @monitor_locations.join(', ') %>.
