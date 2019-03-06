@@ -2,18 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Parramatta Road Local Air Quality, WestConnex Measurements</title>
-    <meta name="description" content="How is the air quality around Parramatta and the WestConnex M4 construction?">
+    <title>WestConnex Air Quality Measurements</title>
+    <meta name="description" content="How is the air quality around WestConnex M4 and M5 construction?">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>What is the air quality around Parramatta Road and the WestConnex M4 construction?</h1>
+    <h1>What is the air quality around WestConnex M4 and M5 construction?</h1>
     <ul>
       <li><a href="/csv">Download the latest readings spreadsheet</a></li>
       <li><a href="/statistics">Look at some nerdy statistics</a></li>
     </ul>
     <p>
-      The air quality surrounding Parramatta Road is currently recorded at <%= Monitor.count %> locations:
+      The air quality surrounding WestConnex M4 and M5 construction is currently recorded at <%= Monitor.count %> locations:
       <%= @monitor_locations.join(', ') %>.
     </p>
 
@@ -41,7 +41,8 @@
 
     <p>
       These air quality readings were collected by WestConnex Contractor EcoTech
-      and first published at <a href='http://airodis.ecotech.com.au/westconnex/index.html'>http://airodis.ecotech.com.au/westconnex/index.html</a>.
+      and first published at <a href='http://airodis.ecotech.com.au/westconnex/index.html'>http://airodis.ecotech.com.au/westconnex/index.html</a>
+      and <a href="http://airodis.ecotech.com.au/westconnexm5new/index.html">http://airodis.ecotech.com.au/westconnexm5new/index.html</a>.
     </p>
   </body>
 </html>
