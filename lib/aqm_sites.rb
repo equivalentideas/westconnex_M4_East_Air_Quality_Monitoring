@@ -9,12 +9,21 @@ Site = Struct.new(:location_name, :json_url) do
   end
 end
 
-# Copied from http://airodis.ecotech.com.au/westconnex/settings.js
 AQM_SITES = [
+  # Copied from http://airodis.ecotech.com.au/westconnex/settings.js
   Site.new('Haberfield Public School AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cChandos+St+Summary.xml&format=json&seq=Chandos+St'),
   Site.new('Concord Oval AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cConcord+Oval+Summary.xml&format=json&seq=Concord+Oval'),
   Site.new('Allen St AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cPomeroy+St+Summary.xml&format=json&seq=Pomeroy+St'),
   Site.new('Powells Creek AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cPowells+Creek+Summary.xml&format=json&seq=Powells+Creek'),
   Site.new('Ramsay St AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cRamsay+St+Summary.xml&format=json&seq=Ramsay+St'),
-  Site.new('St Lukes Park AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cSt+Lukes+Park+Summary.xml&format=json&seq=St+Lukes+Park')
+  Site.new('St Lukes Park AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cWebsite%5cSt+Lukes+Park+Summary.xml&format=json&seq=St+Lukes+Park'),
+  # Copied from http://airodis.ecotech.com.au/westconnexm5new/settings.js
+  Site.new('St Peters 3 (St Peters St) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cSt+Peters+Public+School+Status.xml&format=json'),
+  Site.new('Barton Park AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cBarton+Park+Status.xml&format=json'),
+  Site.new('Arncliffe 1 (West Botany St) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cArncliffe+West+Botany+Status.xml&format=json'),
+  Site.new('Arncliffe 2 (Eve St) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cArncliffe+Eve+St++Status.xml&format=json'),
+  Site.new('St Peters 1 Campbell St) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cSt+Peters+RMS+Status.xml&format=json'),
+  Site.new('St Peters 2 (SPI) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cSt+Peters+SPI+Status.xml&format=json'),
+  Site.new('Kingsgrove 1 (MOC1) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cKingsgrove+1+Status.xml&format=json'),
+  Site.new('Kingsgrove 2 (Kinsgrove Rd) AQM', 'http://airodis.ecotech.com.au/AirodisReport/JobSubmit.ashx?report=West+Connex%5cM5%5cWebsite%5cKingsgrove+2+Status.xml&format=json')
 ].freeze

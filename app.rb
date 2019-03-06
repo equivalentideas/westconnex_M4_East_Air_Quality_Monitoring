@@ -21,13 +21,13 @@ get '/statistics' do
       first_record: records.first.scraped_at,
       record_count: records.count,
       recent: records.last(5).reverse,
-      avg_pm2_5_concentration_ug_per_m3: records.where { pm2_5_concentration_ug_per_m3 >= 0 }.avg(:pm2_5_concentration_ug_per_m3).round(1),
+      avg_pm2_5_concentration_ug_per_m3: records.where { pm2_5_concentration_ug_per_m3 >= 0 }.avg(:pm2_5_concentration_ug_per_m3)&.round(1),
       negatives_pm2_5_concentration_ug_per_m3: records.where { pm2_5_concentration_ug_per_m3 < 0 }.count,
-      avg_pm10_concentration_ug_per_m3: records.where { pm10_concentration_ug_per_m3 >= 0 }.avg(:pm10_concentration_ug_per_m3).round(1),
+      avg_pm10_concentration_ug_per_m3: records.where { pm10_concentration_ug_per_m3 >= 0 }.avg(:pm10_concentration_ug_per_m3)&.round(1),
       negatives_pm10_concentration_ug_per_m3: records.where { pm10_concentration_ug_per_m3 < 0 }.count,
-      avg_co_concentration_ppm: records.where { co_concentration_ppm >= 0 }.avg(:co_concentration_ppm).round(2),
+      avg_co_concentration_ppm: records.where { co_concentration_ppm >= 0 }.avg(:co_concentration_ppm)&.round(2),
       negatives_co_concentration_ppm: records.where { co_concentration_ppm < 0 }.count,
-      avg_no2_concentration_ppm: records.where { no2_concentration_ppm >= 0 }.avg(:no2_concentration_ppm).round(3),
+      avg_no2_concentration_ppm: records.where { no2_concentration_ppm >= 0 }.avg(:no2_concentration_ppm)&.round(3),
       negatives_no2_concentration_ppm: records.where { no2_concentration_ppm < 0 }.count
     }
   end
